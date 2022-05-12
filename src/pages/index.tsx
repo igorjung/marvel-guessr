@@ -1,11 +1,23 @@
 import type { NextPage } from 'next'
 import { useState, useMemo } from 'react'
-import Head from 'next/head'
-import Image from 'next/image'
-import styled from 'styled-components'
 import { Help, Info } from '@material-ui/icons'
 import { TextField } from '@material-ui/core';
 import { Autocomplete } from '@material-ui/lab';
+import { 
+  startOfDay, 
+  endOfDay, 
+  differenceInDays, 
+  differenceInHours,
+  differenceInMinutes,
+  differenceInSeconds,
+  format
+} from 'date-fns'
+import { 
+  utcToZonedTime, 
+} from 'date-fns-tz'
+import Head from 'next/head'
+import Image from 'next/image'
+import styled from 'styled-components'
 import ReactLoading from 'react-loading'
 
 import { getCharacter } from '../services/api'
@@ -116,14 +128,14 @@ interface IHome {
       path: string,
       extension: string,
     },
-  }
+  },
 }
 
 const Home: NextPage = ({ data } : IHome) => {
   const [isCorrect, setIsCorrect] = useState(false);
   const [guesses, setGuesses] = useState([]);
 
-  const HandleGuessing = () => {
+  const handleGuessing = () => {
     const guess = (document.getElementById('guessing-input') as HTMLInputElement).value
     if(guess === answer) {
       setIsCorrect(true)
@@ -195,7 +207,7 @@ const Home: NextPage = ({ data } : IHome) => {
                   />
                   <SubmitButton 
                     type="button" 
-                    onClick={HandleGuessing}
+                    onClick={handleGuessing}
                   >SUBMIT</SubmitButton>
                 </Form>
               )}
@@ -218,7 +230,6 @@ const Home: NextPage = ({ data } : IHome) => {
           )}
         </Content>
         <Footer>
-          Next Hero: 13:14:01
           These icons and more are from material-icons
           These images are from marvel-api
         </Footer>
@@ -227,14 +238,28 @@ const Home: NextPage = ({ data } : IHome) => {
   )
 }
 
+const getDates = () => {
+  const timeZone = 'America/Sao_Paulo'
+  const type =`yyyy-MM-dd'T'HH:mm:ss.SSSxxx`
+
+  const firstDay = utcToZonedTime(
+    format(startOfDay(new Date('2022-05-12T00:00:00Z')), type),
+    timeZone
+  )
+  const date = utcToZonedTime(
+    format(new Date(), type),
+    timeZone
+  )
+  return differenceInDays(date, firstDay)
+}
+
 export const getStaticProps = async () => {
-  const [data] = await getCharacter(list.characters[0].id)
+  const days = getDates()
+  const [data] = await getCharacter(list.characters[days].id)
 
   return {
     revalidate: 300,
-    props: {
-      data
-    }
+    props: { data }
   };
 };
 
