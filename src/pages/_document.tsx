@@ -43,11 +43,11 @@ export default class MyDocument extends Document {
           <meta charSet="utf-8"/>
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:400,500,700"
+            href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=optional"
           />
           <link
             rel="stylesheet"
-            href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.14.0/devicon.min.css"
+            href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.14.0/devicon.min.css&display=optional"
           />
         </Head>
 

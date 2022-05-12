@@ -1,0 +1,802 @@
+{"characters": [
+  {
+      "id": 1010810,
+      "name": "Kate Bishop"
+  },
+  {
+      "id": 1010359,
+      "name": "The Hand"
+  },
+  {
+      "id": 1009320,
+      "name": "Giant Man"
+  },
+  {
+      "id": 1009662,
+      "name": "Thing"
+  },
+  {
+      "id": 1009515,
+      "name": "Punisher"
+  },
+  {
+      "id": 1011033,
+      "name": "Joystick"
+  },
+  {
+      "id": 1014160,
+      "name": "Omega (Michael Pointer)"
+  },
+  {
+      "id": 1009343,
+      "name": "Hercules"
+  },
+  {
+      "id": 1010745,
+      "name": "Sister Grimm"
+  },
+  {
+      "id": 1009596,
+      "name": "Banshee (Theresa Rourke)"
+  },
+  {
+      "id": 1009316,
+      "name": "Gauntlet (Joseph Green)"
+  },
+  {
+      "id": 1009718,
+      "name": "Wolverine"
+  },
+  {
+      "id": 1009191,
+      "name": "Blade"
+  },
+  {
+      "id": 1011216,
+      "name": "The Liberteens"
+  },
+  {
+      "id": 1009546,
+      "name": "Rogue"
+  },
+  {
+      "id": 1009297,
+      "name": "Falcon"
+  },
+  {
+      "id": 1017834,
+      "name": "War Machine (James Rhodes)"
+  },
+  {
+      "id": 1010784,
+      "name": "Ares"
+  },
+  {
+      "id": 1010747,
+      "name": "Runaways"
+  },
+  {
+      "id": 1009578,
+      "name": "Shanna the She-Devil"
+  },
+  {
+      "id": 1009224,
+      "name": "Captain Marvel (Mar-Vell)"
+  },
+  {
+      "id": 1009552,
+      "name": "S.H.I.E.L.D."
+  },
+  {
+      "id": 1010759,
+      "name": "Heroes For Hire"
+  },
+  {
+      "id": 1011334,
+      "name": "3-D Man"
+  },
+  {
+      "id": 1009382,
+      "name": "Juggernaut"
+  },
+  {
+      "id": 1009327,
+      "name": "Jean Grey"
+  },
+  {
+      "id": 1009189,
+      "name": "Black Widow"
+  },
+  {
+      "id": 1009492,
+      "name": "Patriot"
+  },
+  {
+      "id": 1009208,
+      "name": "Brood"
+  },
+  {
+      "id": 1009606,
+      "name": "Snowbird"
+  },
+  {
+      "id": 1009639,
+      "name": "Super-Skrull"
+  },
+  {
+      "id": 1010802,
+      "name": "Ant-Man (Eric O'Grady)"
+  },
+  {
+      "id": 1009282,
+      "name": "Doctor Strange"
+  },
+  {
+      "id": 1009366,
+      "name": "Invisible Woman"
+  },
+  {
+      "id": 1010791,
+      "name": "Sub-Mariner"
+  },
+  {
+      "id": 1009378,
+      "name": "Jessica Jones"
+  },
+  {
+      "id": 1009537,
+      "name": "Rhino"
+  },
+  {
+      "id": 1009508,
+      "name": "Kitty Pryde"
+  },
+  {
+      "id": 1010676,
+      "name": "Colleen Wing"
+  },
+  {
+      "id": 1009148,
+      "name": "Absorbing Man"
+  },
+  {
+      "id": 1011020,
+      "name": "Darkhawk"
+  },
+  {
+      "id": 1009367,
+      "name": "Iron Fist (Danny Rand)"
+  },
+  {
+      "id": 1009703,
+      "name": "Warbird"
+  },
+  {
+      "id": 1010749,
+      "name": "Gertrude Yorkes"
+  },
+  {
+      "id": 1009466,
+      "name": "Namor"
+  },
+  {
+      "id": 1010788,
+      "name": "Venom (Mac Gargan)"
+  },
+  {
+      "id": 1009707,
+      "name": "Wasp"
+  },
+  {
+      "id": 1011081,
+      "name": "Ka-Zar"
+  },
+  {
+      "id": 1009641,
+      "name": "Swordsman"
+  },
+  {
+      "id": 1009287,
+      "name": "Electro"
+  },
+  {
+      "id": 1010901,
+      "name": "Stephen Strange"
+  },
+  {
+      "id": 1009384,
+      "name": "Kang"
+  },
+  {
+      "id": 1009359,
+      "name": "Hydra"
+  },
+  {
+      "id": 1010778,
+      "name": "Quasar (Wendell Vaughn)"
+  },
+  {
+      "id": 1010782,
+      "name": "Ben Urich"
+  },
+  {
+      "id": 1010746,
+      "name": "Nico Minoru"
+  },
+  {
+      "id": 1011490,
+      "name": "Hank Pym"
+  },
+  {
+      "id": 1009539,
+      "name": "Franklin Richards"
+  },
+  {
+      "id": 1010702,
+      "name": "Gravity"
+  },
+  {
+      "id": 1009165,
+      "name": "Avengers"
+  },
+  {
+      "id": 1009571,
+      "name": "Sentry (Robert Reynolds)"
+  },
+  {
+      "id": 1009630,
+      "name": "Johnny Storm"
+  },
+  {
+      "id": 1009198,
+      "name": "Blizzard"
+  },
+  {
+      "id": 1009184,
+      "name": "Black Bolt"
+  },
+  {
+      "id": 1010899,
+      "name": "Spitfire"
+  },
+  {
+      "id": 1009368,
+      "name": "Iron Man"
+  },
+  {
+      "id": 1011212,
+      "name": "Sugar Man"
+  },
+  {
+      "id": 1011335,
+      "name": "Maria Hill"
+  },
+  {
+      "id": 1010826,
+      "name": "MVP"
+  },
+  {
+      "id": 1009215,
+      "name": "Luke Cage"
+  },
+  {
+      "id": 1010823,
+      "name": "Cloud 9"
+  },
+  {
+      "id": 1011057,
+      "name": "Slapstick"
+  },
+  {
+      "id": 1009526,
+      "name": "Radioactive Man"
+  },
+  {
+      "id": 1011028,
+      "name": "Owl"
+  },
+  {
+      "id": 1009212,
+      "name": "Bullseye"
+  },
+  {
+      "id": 1009525,
+      "name": "Valeria Richards"
+  },
+  {
+      "id": 1009594,
+      "name": "Silvermane"
+  },
+  {
+      "id": 1009299,
+      "name": "Fantastic Four"
+  },
+  {
+      "id": 1009365,
+      "name": "Inhumans"
+  },
+  {
+      "id": 1010822,
+      "name": "Trauma"
+  },
+  {
+      "id": 1011227,
+      "name": "Amadeus Cho"
+  },
+  {
+      "id": 1009223,
+      "name": "Captain Britain"
+  },
+  {
+      "id": 1009387,
+      "name": "Quentin Quire"
+  },
+  {
+      "id": 1009438,
+      "name": "Medusa"
+  },
+  {
+      "id": 1010927,
+      "name": "Goliath (Bill Foster)"
+  },
+  {
+      "id": 1010766,
+      "name": "Jack O' Lantern"
+  },
+  {
+      "id": 1017317,
+      "name": "Cable (Deadpool)"
+  },
+  {
+      "id": 1009608,
+      "name": "Spider-Woman (Jessica Drew)"
+  },
+  {
+      "id": 1009650,
+      "name": "Tempest"
+  },
+  {
+      "id": 1011376,
+      "name": "Reptil"
+  },
+  {
+      "id": 1010694,
+      "name": "Speedball (Robert Baldwin)"
+  },
+  {
+      "id": 1009583,
+      "name": "She-Hulk (Jennifer Walters)"
+  },
+  {
+      "id": 1010338,
+      "name": "Captain Marvel (Carol Danvers)"
+  },
+  {
+      "id": 1010683,
+      "name": "New Warriors"
+  },
+  {
+      "id": 1009243,
+      "name": "Colossus"
+  },
+  {
+      "id": 1009415,
+      "name": "Magik (Illyana Rasputin)"
+  },
+  {
+      "id": 1011370,
+      "name": "Molten Man"
+  },
+  {
+      "id": 1010827,
+      "name": "Armory"
+  },
+  {
+      "id": 1009581,
+      "name": "Sebastian Shaw"
+  },
+  {
+      "id": 1009624,
+      "name": "Tony Stark"
+  },
+  {
+      "id": 1010829,
+      "name": "Bengal"
+  },
+  {
+      "id": 1009471,
+      "name": "Nick Fury"
+  },
+  {
+      "id": 1010771,
+      "name": "Excalibur"
+  },
+  {
+      "id": 1009708,
+      "name": "Mary Jane Watson"
+  },
+  {
+      "id": 1009310,
+      "name": "Emma Frost"
+  },
+  {
+      "id": 1009535,
+      "name": "Red Skull"
+  },
+  {
+      "id": 1009430,
+      "name": "Rachel Grey"
+  },
+  {
+      "id": 1010450,
+      "name": "Lightspeed"
+  },
+  {
+      "id": 1009338,
+      "name": "Hawkeye"
+  },
+  {
+      "id": 1009697,
+      "name": "Vision"
+  },
+  {
+      "id": 1009580,
+      "name": "Shatterstar"
+  },
+  {
+      "id": 1009376,
+      "name": "Jocasta"
+  },
+  {
+      "id": 1009214,
+      "name": "Cable"
+  },
+  {
+      "id": 1009241,
+      "name": "Cloak"
+  },
+  {
+      "id": 1009670,
+      "name": "Tigra (Greer Nelson)"
+  },
+  {
+      "id": 1009726,
+      "name": "X-Men"
+  },
+  {
+      "id": 1009187,
+      "name": "Black Panther"
+  },
+  {
+      "id": 1014528,
+      "name": "Quake (Daisy Johnson)"
+  },
+  {
+      "id": 1009318,
+      "name": "Ghost Rider (Johnny Blaze)"
+  },
+  {
+      "id": 1010754,
+      "name": "Chase Stein"
+  },
+  {
+      "id": 1009599,
+      "name": "Skrulls"
+  },
+  {
+      "id": 1009459,
+      "name": "Mr. Fantastic"
+  },
+  {
+      "id": 1009288,
+      "name": "Elektra"
+  },
+  {
+      "id": 1010760,
+      "name": "Justice"
+  },
+  {
+      "id": 1009180,
+      "name": "Beta-Ray Bill"
+  },
+  {
+      "id": 1009284,
+      "name": "Dum Dum Dugan"
+  },
+  {
+      "id": 1009355,
+      "name": "Hulkling"
+  },
+  {
+      "id": 1009714,
+      "name": "Wiccan"
+  },
+  {
+      "id": 1009317,
+      "name": "Genesis"
+  },
+  {
+      "id": 1010715,
+      "name": "The Hood"
+  },
+  {
+      "id": 1009389,
+      "name": "Kingpin"
+  },
+  {
+      "id": 1011299,
+      "name": "Guardians of the Galaxy"
+  },
+  {
+      "id": 1009507,
+      "name": "Prowler"
+  },
+  {
+      "id": 1010753,
+      "name": "Talkback (Chase Stein)"
+  },
+  {
+      "id": 1009610,
+      "name": "Spider-Man (Peter Parker)"
+  },
+  {
+      "id": 1009351,
+      "name": "Hulk"
+  },
+  {
+      "id": 1009372,
+      "name": "J. Jonah Jameson"
+  },
+  {
+      "id": 1009207,
+      "name": "GW Bridge"
+  },
+  {
+      "id": 1011148,
+      "name": "Kree"
+  },
+  {
+      "id": 1009585,
+      "name": "Shocker (Herman Schultz)"
+  },
+  {
+      "id": 1010820,
+      "name": "Thor Girl"
+  },
+  {
+      "id": 1009504,
+      "name": "Professor X"
+  },
+  {
+      "id": 1010740,
+      "name": "Winter Soldier"
+  },
+  {
+      "id": 1010817,
+      "name": "Rage"
+  },
+  {
+      "id": 1009664,
+      "name": "Thor"
+  },
+  {
+      "id": 1009175,
+      "name": "Beast"
+  },
+  {
+      "id": 1009560,
+      "name": "Sasquatch (Walter Langkowski)"
+  },
+  {
+      "id": 1010717,
+      "name": "Debrii"
+  },
+  {
+      "id": 1011176,
+      "name": "Ajak"
+  },
+  {
+      "id": 1009385,
+      "name": "Karnak"
+  },
+  {
+      "id": 1010335,
+      "name": "Triton"
+  },
+  {
+      "id": 1009220,
+      "name": "Captain America"
+  },
+  {
+      "id": 1009499,
+      "name": "Polaris"
+  },
+  {
+      "id": 1010853,
+      "name": "White Tiger (Angela Del Toro)"
+  },
+  {
+      "id": 1009477,
+      "name": "Nova"
+  },
+  {
+      "id": 1010371,
+      "name": "Boomerang"
+  },
+  {
+      "id": 1009257,
+      "name": "Cyclops"
+  },
+  {
+      "id": 1010797,
+      "name": "Nitro"
+  },
+  {
+      "id": 1009245,
+      "name": "Constrictor"
+  },
+  {
+      "id": 1009524,
+      "name": "Quicksilver"
+  },
+  {
+      "id": 1010828,
+      "name": "Stature"
+  },
+  {
+      "id": 1009155,
+      "name": "Ant-Man (Hank Pym)"
+  },
+  {
+      "id": 1009740,
+      "name": "Arnim Zola"
+  },
+  {
+      "id": 1009324,
+      "name": "Gorgon"
+  },
+  {
+      "id": 1009685,
+      "name": "Ultron"
+  },
+  {
+      "id": 1010808,
+      "name": "Hawkeye (Kate Bishop)"
+  },
+  {
+      "id": 1009312,
+      "name": "Galactus"
+  },
+  {
+      "id": 1011100,
+      "name": "Layla Miller"
+  },
+  {
+      "id": 1009277,
+      "name": "Domino"
+  },
+  {
+      "id": 1009629,
+      "name": "Storm"
+  },
+  {
+      "id": 1010821,
+      "name": "Hardball"
+  },
+  {
+      "id": 1009313,
+      "name": "Gambit"
+  },
+  {
+      "id": 1011428,
+      "name": "Hope Summers"
+  },
+  {
+      "id": 1009648,
+      "name": "Taskmaster"
+  },
+  {
+      "id": 1010352,
+      "name": "Madame Masque"
+  },
+  {
+      "id": 1009473,
+      "name": "Nightmare"
+  },
+  {
+      "id": 1011360,
+      "name": "Red Hulk"
+  },
+  {
+      "id": 1010360,
+      "name": "Thunderbolts"
+  },
+  {
+      "id": 1009281,
+      "name": "Doctor Doom"
+  },
+  {
+      "id": 1009234,
+      "name": "Chameleon"
+  },
+  {
+      "id": 1009538,
+      "name": "Iron Patriot (James Rhodes)"
+  },
+  {
+      "id": 1009406,
+      "name": "Lockjaw"
+  },
+  {
+      "id": 1009185,
+      "name": "Black Cat"
+  },
+  {
+      "id": 1009562,
+      "name": "Scarlet Witch"
+  },
+  {
+      "id": 1009417,
+      "name": "Magneto"
+  },
+  {
+      "id": 1010684,
+      "name": "Night Thrasher"
+  },
+  {
+      "id": 1009182,
+      "name": "Bishop"
+  },
+  {
+      "id": 1009514,
+      "name": "Puma"
+  },
+  {
+      "id": 1009452,
+      "name": "Moon Knight"
+  },
+  {
+      "id": 1009268,
+      "name": "Deadpool"
+  },
+  {
+      "id": 1009362,
+      "name": "Iceman"
+  },
+  {
+      "id": 1009722,
+      "name": "X-23"
+  },
+  {
+      "id": 1009325,
+      "name": "Norman Osborn"
+  },
+  {
+      "id": 1009262,
+      "name": "Daredevil"
+  },
+  {
+      "id": 1009356,
+      "name": "Human Torch"
+  },
+  {
+      "id": 1010818,
+      "name": "Komodo (Melati Kusuma)"
+  },
+  {
+      "id": 1009283,
+      "name": "Dragon Man"
+  },
+  {
+      "id": 1010691,
+      "name": "Molly Hayes"
+  },
+  {
+      "id": 1010833,
+      "name": "Speed"
+  },
+  {
+      "id": 1009255,
+      "name": "Crystal"
+  }
+]}
