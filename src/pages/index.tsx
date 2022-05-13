@@ -361,7 +361,7 @@ const Home: NextPage = ({
   const resetGame = () => {
     const dayNumber = parseInt(getLocalStorage('days') || '0')
 
-    if(days > dayNumber) {
+    if(days !== dayNumber) {
       setLocalStorage('guesses', JSON.stringify([]))
       setLocalStorage('isCorrect', 'false')
     }
