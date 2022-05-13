@@ -425,7 +425,7 @@ const Home: NextPage = ({
           </div>
         </Header>
         <Content>
-          {data ? (
+          {thumbnail ? (
             <>
               <span className="answer">
                 {(isCorrect || guesses.length > 5) ? answer : '???'}
@@ -436,6 +436,7 @@ const Home: NextPage = ({
                     alt='image'
                     layout='fill'
                     objectFit='cover'
+                    priority
                     src={thumbnail}   
                   />
                 </div>
@@ -495,9 +496,9 @@ const Home: NextPage = ({
           ): (
             <ReactLoading 
               type={'spin'} 
-              color={'#000'} 
-              height={667} 
-              width={375} 
+              color={'#2A3740'} 
+              height={200} 
+              width={200} 
             />
           )}
         </Content>
@@ -517,7 +518,7 @@ const getDates = () => {
   const type =`yyyy-MM-dd'T'HH:mm:ss.SSSxxx`
 
   const firstDay = utcToZonedTime(
-    format(startOfDay(new Date('2022-05-12T00:00:00Z')), type),
+    format(startOfDay(new Date(`${process.env.NEXT_PUBLIC_DATE}T00:00:00Z`)), type),
     timeZone
   )
   const date = utcToZonedTime(
@@ -525,21 +526,25 @@ const getDates = () => {
     timeZone
   )
 
-  return differenceInDays(date, firstDay)
+  let days = differenceInDays(date, firstDay)
+  days = days > 0 ? days -1 : days 
+
+  return days
 }
 
 export const getStaticProps = async () => {
   const days = getDates()
-  const [data] = await getCharacter(list.characters[118].id)
+  console.log(days)
+  const [data] = await getCharacter(list.characters[days].id)
 
-  const options = list.characters
+  const options = [...list.characters]
   options.sort((a, b) => a.id - b.id )
 
   return {
     revalidate: 80000,
     props: { 
       data, 
-      days: 102,
+      days:30,
       options
     }
   };
