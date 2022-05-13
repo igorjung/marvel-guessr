@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import { useState, useMemo, useEffect } from 'react'
 import { Close, Info } from '@material-ui/icons'
 import { TextField, Dialog } from '@material-ui/core';
-import { Autocomplete } from '@material-ui/lab';
+import { Autocomplete, Alert } from '@material-ui/lab';
 import { 
   startOfDay, 
   differenceInDays, 
@@ -87,7 +87,7 @@ const ImageContainer = styled.div<{guesses: number, isCorrect: boolean}>`
     position: relative;
     width: 360px;
     height: 360px;
-    filter: ${({ isCorrect, guesses }) => isCorrect ? `blur(0px)` : `blur(${5 - guesses}px)`};
+    filter: ${({ isCorrect, guesses }) => isCorrect ? `blur(0px)` : `blur(${(5 - guesses) * 5}px)`};
   }
 
   @media only screen and (max-width: 820px) {
@@ -178,6 +178,14 @@ const ShareSection = styled.div`
 const Text = styled.p<{isCorrect: boolean}>`
   font-size: 24px;
   color: ${({isCorrect}) => isCorrect ? '#081B2B' : '#450003'};
+  font-weight: 600;
+  width: 100%;
+  text-align: center;
+  margin-top: 16px;
+`
+const GuessNumber = styled.span`
+  font-size: 24px;
+  color: ${({ theme }) => theme.colors.text};
   font-weight: 600;
   width: 100%;
   text-align: center;
@@ -285,6 +293,12 @@ const ModalSection = styled.section`
     }
   }
 `
+const SharedAlert = styled(Alert)`
+  position: absolute;
+  top: 80px;
+  left: 10%;
+  width: 80%;
+`
 export interface IAbout {
   open: boolean;
   onClose: () => void;
@@ -334,6 +348,7 @@ const Home: NextPage = ({
   const [guesses, setGuesses] = useState([]);
   const [guess, setGuess] = useState('');
   const [open, setOpen] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
   const setLocalStorage = (key: string, value: string) => {
     localStorage.setItem(key, value)
@@ -373,13 +388,22 @@ const Home: NextPage = ({
     setGuess('')
   }
 
-  const handleShare = (evt: { preventDefault: () => void; }) => {
-    evt.preventDefault(); 
-    navigator.clipboard.writeText(`
-      Am I Nerdola? #${days} *${guesses.length}/5
-      
-      ${window.location.href}
-    `);
+  const handleShare = async (evt: { preventDefault: () => void; }) => {
+    if (navigator.share) { 
+      const shareData = {
+        title: 'AmINerdola',
+        text: `Am I Nerdola? ${isCorrect ? 'Yes' : 'No'} #${days}`,
+        url: `${window.location.href}`,
+      };    
+
+      await navigator.share(shareData);
+    } else {
+      evt.preventDefault(); 
+      navigator.clipboard.writeText(
+      `Am I Nerdola? ${isCorrect ? 'Yes' : 'No'} #${days}\n\n${window.location.href}`
+      )
+    }
+    setShowAlert(true)
   }
 
   const [answer, thumbnail] = useMemo(() => {
@@ -427,7 +451,7 @@ const Home: NextPage = ({
           {thumbnail ? (
             <>
               <span className="answer">
-                {(isCorrect || guesses.length > 5) ? answer : '???'}
+                {(isCorrect || guesses.length >= 5) ? answer : '???'}
               </span>
               <ImageContainer guesses={guesses.length} isCorrect={isCorrect}>
                 <div>
@@ -440,41 +464,46 @@ const Home: NextPage = ({
                   />
                 </div>
               </ImageContainer>
-              {(isCorrect || guesses.length > 5) ? (
+              {(isCorrect || guesses.length >= 5) ? (
                 <Text isCorrect={isCorrect}>
                   {isCorrect ? 'You got it!' : 'You missed!'}
                 </Text>
               ) : (
-                <Form>
-                  <Autocomplete
-                    id="guessing-input"
-                    value={guess || null}
-                    options={options.map((option) => option.name)}
-                    onChange={(event: any, newValue: string | null) => {
-                      setGuess(newValue)
-                    }}
-                    clearOnEscape
-                    disableClearable
-                    blurOnSelect
-                    renderInput={(params) => (
-                      <Input
-                        {...params}
-                        InputProps={{
-                          ...params.InputProps,
-                          type: 'search',
-                          placeholder: 'Enter name character...',
-                        }}
-                      />
-                    )}
-                  />
-                  <SubmitButton 
-                    type="button"
-                    disabled={!guess} 
-                    onClick={handleGuessing}
-                  >
-                    SUBMIT
-                  </SubmitButton>
-                </Form>
+                <>
+                  <Form>
+                    <Autocomplete
+                      id="guessing-input"
+                      value={guess || null}
+                      options={options.map((option) => option.name)}
+                      onChange={(event: any, newValue: string | null) => {
+                        setGuess(newValue)
+                      }}
+                      clearOnEscape
+                      disableClearable
+                      blurOnSelect
+                      renderInput={(params) => (
+                        <Input
+                          {...params}
+                          InputProps={{
+                            ...params.InputProps,
+                            type: 'search',
+                            placeholder: 'Enter name character...',
+                          }}
+                        />
+                      )}
+                    />
+                    <SubmitButton 
+                      type="button"
+                      disabled={!guess} 
+                      onClick={handleGuessing}
+                    >
+                      SUBMIT
+                    </SubmitButton>
+                  </Form>
+                  <GuessNumber>
+                    {guesses.length}/5
+                  </GuessNumber>
+                </>
               )}
               <List>
                 {guesses && guesses.map((item, index) => (
@@ -484,7 +513,7 @@ const Home: NextPage = ({
                   </li>
                 ))}
               </List>
-              {(isCorrect || guesses.length > 5) && (
+              {(isCorrect || guesses.length >= 5) && (
                 <ShareSection >
                   <button type="button" onClick={handleShare}>
                     SHARE
@@ -506,6 +535,15 @@ const Home: NextPage = ({
             This site uses <a href="https://developer.marvel.com/" target="blank">{"Marvel's API"}</a> and icons from <a href="https://mui.com/" target="blank">Material UI</a>
           </p>
         </Footer>
+        {showAlert && (
+          <SharedAlert 
+            onClose={() => setShowAlert(false)}
+            variant="filled" 
+            severity="success"
+          >
+            Copied link to clipboard
+          </SharedAlert>
+        )}
       </Container>
       <AboutModal open={open} onClose={() => setOpen(false)}/>
     </>
@@ -542,7 +580,7 @@ export const getStaticProps = async () => {
     revalidate: 80000,
     props: { 
       data, 
-      days:30,
+      days,
       options
     }
   };
