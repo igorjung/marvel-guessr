@@ -20,6 +20,8 @@ import { getCharacter } from '../services/api'
 import list from '../data/characters.json'
 
 const Container = styled.main`
+  position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,8 +30,13 @@ const Container = styled.main`
   width: 100vw;
   max-width: 800px;
   height: 100%;
+  min-height: 100vh;
 
   padding: 16px 0;
+
+  @media only screen and (max-width: 820px) {
+    padding: 16px 32px;
+  }
 `
 const Header = styled.header`
   display: flex;
@@ -38,7 +45,19 @@ const Header = styled.header`
   justify-content: space-between;
 
   width: 100%;
-  height: 60px;
+  margin-bottom: 48px;
+  padding-bottom: 16px;
+
+  border-bottom: 2px solid #2A3740;
+
+  h1 {
+    font-size: 28px;
+    line-height: 32px;
+    font-weight: bold;
+    color: ${({ theme }) => theme.colors.primary};
+    /* font-family: 'Merriweather', serif; */
+    font-family: 'Koulen', sans-serif;
+  }
 `
 const Content = styled.div`
   position: relative;
@@ -71,13 +90,36 @@ const ImageContainer = styled.div<{guesses: number, isCorrect: boolean}>`
     height: 360px;
     filter: ${({ isCorrect, guesses }) => isCorrect ? `blur(0px)` : `blur(${5 - guesses}px)`};
   }
+
+  @media only screen and (max-width: 820px) {
+    width: 100%;
+    background-color: none;
+
+    img {
+      border-radius: 8px;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    div {
+      width: 250px;
+      height: 2500px;
+    }
+  }
 `
 const Form = styled.div`
   display: grid;
   grid-template-columns: 80% 20%;
+
   width: 100%;
   padding: 0 64px;
   margin-top: 32px;
+
+  @media only screen and (max-width: 820px) {
+    display: block;
+    text-align: center;
+    padding: 0;
+  }
 `
 const Input = styled(TextField)`
   width: 100%;
@@ -101,6 +143,38 @@ const SubmitButton = styled.button`
     background-color: ${({theme}) => theme.colors.secondary};
     cursor: not-allowed;
   }
+
+  @media only screen and (max-width: 820px) {
+    margin: 16px 0 0 0;
+  }
+`;
+const ShareSection = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  padding-bottom: 32px;
+
+  button {
+    height: 42px;
+    width: 120px;
+
+    font-size: 22px;
+    line-height: 26px;
+    font-weight: bold;
+    color: #fff;
+
+    border-radius: 4px;
+    background-color: ${({theme}) => theme.colors.primary};
+    cursor: pointer;
+
+    &:disabled {
+      background-color: ${({theme}) => theme.colors.secondary};
+      cursor: not-allowed;
+    }
+  }
+
 `;
 const Text = styled.p<{isCorrect: boolean}>`
   font-size: 24px;
@@ -117,7 +191,8 @@ const List = styled.ul`
   justify-content: flex-start;
   width: 100%;
 
-  margin: 16px 0 32px 0;
+  margin-top: 16px;
+  padding-bottom: 32px;
 
   li {
     width: 100%;
@@ -147,6 +222,7 @@ const Footer = styled.footer`
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 
   width: 100%;
   margin-top: auto;
@@ -164,8 +240,6 @@ const Footer = styled.footer`
   }
 `
 
-const Modal = styled(Dialog)`
-`
 const ModalHeader = styled.header`
   display: flex;
   flex-direction: row;
@@ -212,7 +286,6 @@ const ModalSection = styled.section`
     }
   }
 `
-
 export interface IAbout {
   open: boolean;
   onClose: () => void;
@@ -220,7 +293,7 @@ export interface IAbout {
 
 const AboutModal = ({open, onClose}: IAbout) => {
   return (
-    <Modal onClose={onClose} open={open}>
+    <Dialog onClose={onClose} open={open}>
       <ModalHeader>
         <h2>ABOUT</h2>
         <button type="button" onClick={onClose}>
@@ -233,7 +306,7 @@ const AboutModal = ({open, onClose}: IAbout) => {
         <p>To play is quite simple. Guess the character name looking the blur picture. If you get a guess wron the picture becames more clear.</p>
         <p>All rights go to the rightful owners - no copyright infringement intended.</p>
       </ModalSection>
-    </Modal>
+    </Dialog>
   )
 }
 
@@ -272,7 +345,7 @@ const Home: NextPage = ({
   }
 
   const resetGame = () => {
-    const dayNumber = parseInt(getLocalStorage('days') || 0)
+    const dayNumber = parseInt(getLocalStorage('days') || '0')
 
     if(days > dayNumber) {
       setLocalStorage('guesses', JSON.stringify([]))
@@ -301,6 +374,15 @@ const Home: NextPage = ({
     setGuess('')
   }
 
+  const handleShare = (evt: { preventDefault: () => void; }) => {
+    evt.preventDefault(); 
+    navigator.clipboard.writeText(`
+      Am I Nerdola? #${days} *${guesses.length}/5
+      
+      ${window.location.href}
+    `);
+  }
+
   const [answer, thumbnail] = useMemo(() => {
     if(data && data.name && data.thumbnail) {
       return [
@@ -326,13 +408,16 @@ const Home: NextPage = ({
   return (
     <>
       <Head>
-        <title>Marvels - The daily marvel hero guessing game</title>
-        <meta name="description" content="The daily marvel hero guessing game" />
+        <title>AmINerdola - The daily marvel character guessing game</title>
+        <meta name="description" content="The daily marvel character guessing game" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container>
         <Header>
-          Marvels
+          <div style={{ width:'24px', height:'24px' }}/>
+          <h1>
+            AMINERDOLA
+          </h1>
           <div>
             <button type="button" onClick={() => setOpen(true)}>
               <Info />
@@ -343,11 +428,7 @@ const Home: NextPage = ({
           {data ? (
             <>
               <span className="answer">
-                {(isCorrect ||
-                (guesses && guesses.length > 5)) ?
-                  answer :
-                  '???'
-                }
+                {(isCorrect || guesses.length > 5) ? answer : '???'}
               </span>
               <ImageContainer guesses={guesses.length} isCorrect={isCorrect}>
                 <div>
@@ -359,8 +440,7 @@ const Home: NextPage = ({
                   />
                 </div>
               </ImageContainer>
-              {isCorrect ||
-              (guesses && guesses.length > 5) ? (
+              {(isCorrect || guesses.length > 5) ? (
                 <Text isCorrect={isCorrect}>
                   {isCorrect ? 'You got it!' : 'You missed!'}
                 </Text>
@@ -404,6 +484,13 @@ const Home: NextPage = ({
                   </li>
                 ))}
               </List>
+              {(isCorrect || guesses.length > 5) && (
+                <ShareSection >
+                  <button type="button" onClick={handleShare}>
+                    SHARE
+                  </button>
+                </ShareSection>
+              )}
             </>
           ): (
             <ReactLoading 
@@ -443,7 +530,7 @@ const getDates = () => {
 
 export const getStaticProps = async () => {
   const days = getDates()
-  const [data] = await getCharacter(list.characters[198].id)
+  const [data] = await getCharacter(list.characters[118].id)
 
   const options = list.characters
   options.sort((a, b) => a.id - b.id )
@@ -452,7 +539,7 @@ export const getStaticProps = async () => {
     revalidate: 80000,
     props: { 
       data, 
-      days,
+      days: 102,
       options
     }
   };

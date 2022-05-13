@@ -10,13 +10,14 @@ export default createGlobalStyle`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 
     width: 100%;
     height: 100%;
     background: ${props => props.theme.colors.background};
     color: ${props => props.theme.colors.text};
     font: 400 15px Roboto, sans-serif;
+    overflow-x: hidden;
   }
   button {
     border: 0;
