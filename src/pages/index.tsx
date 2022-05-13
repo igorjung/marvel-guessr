@@ -55,7 +55,6 @@ const Header = styled.header`
     line-height: 32px;
     font-weight: bold;
     color: ${({ theme }) => theme.colors.primary};
-    /* font-family: 'Merriweather', serif; */
     font-family: 'Koulen', sans-serif;
   }
 `
@@ -301,8 +300,8 @@ const AboutModal = ({open, onClose}: IAbout) => {
         </button>
       </ModalHeader>
       <ModalSection>
-        <p>This is a game for Marvel's fans! Inspired by <a href="https://www.nytimes.com/games/wordle/index.html" target="blank">Wordle</a>, <a href="https://term.ooo/" target="blank">Termoo</a>, <a href="https://www.gabtoschi.com/letreco/" target="blank">Letreco</a> and <a href="https://framed.wtf/" target="blank">Framed</a></p>
-        <p>Each day a new character is picked from <a href="https://developer.marvel.com/" target="blank">Marvel's API</a>.</p>
+        <p>This is a game for fans of MCU or Comic Books! Inspired by <a href="https://www.nytimes.com/games/wordle/index.html" target="blank">Wordle</a>, <a href="https://term.ooo/" target="blank">Termoo</a>, <a href="https://www.gabtoschi.com/letreco/" target="blank">Letreco</a> and <a href="https://framed.wtf/" target="blank">Framed</a></p>
+        <p>Each day a new character is picked from <a href="https://developer.marvel.com/" target="blank">{"Marvel's API"}</a>.</p>
         <p>To play is quite simple. Guess the character name looking the blur picture. If you get a guess wron the picture becames more clear.</p>
         <p>All rights go to the rightful owners - no copyright infringement intended.</p>
       </ModalSection>
@@ -410,7 +409,7 @@ const Home: NextPage = ({
       <Head>
         <title>AmINerdola - The daily marvel character guessing game</title>
         <meta name="description" content="The daily marvel character guessing game" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/icon.png" />
       </Head>
       <Container>
         <Header>
@@ -478,8 +477,8 @@ const Home: NextPage = ({
                 </Form>
               )}
               <List>
-                {guesses && guesses.map((item) => (
-                  <li key={item}>
+                {guesses && guesses.map((item, index) => (
+                  <li key={`${item}-${index}`}>
                     <Close />
                     {item}
                   </li>
@@ -504,7 +503,7 @@ const Home: NextPage = ({
         </Content>
         <Footer>
           <p>
-            This site uses <a href="https://developer.marvel.com/" target="blank">Marvel's API</a> and icons from <a href="https://mui.com/" target="blank">Material UI</a>
+            This site uses <a href="https://developer.marvel.com/" target="blank">{"Marvel's API"}</a> and icons from <a href="https://mui.com/" target="blank">Material UI</a>
           </p>
         </Footer>
       </Container>
@@ -534,7 +533,6 @@ const getDates = () => {
 
 export const getStaticProps = async () => {
   const days = getDates()
-  console.log(days)
   const [data] = await getCharacter(list.characters[days].id)
 
   const options = [...list.characters]
