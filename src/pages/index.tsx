@@ -302,7 +302,7 @@ const AboutModal = ({open, onClose}: IAbout) => {
       <ModalSection>
         <p>This is a game for fans of MCU or Comic Books! Inspired by <a href="https://www.nytimes.com/games/wordle/index.html" target="blank">Wordle</a>, <a href="https://term.ooo/" target="blank">Termoo</a>, <a href="https://www.gabtoschi.com/letreco/" target="blank">Letreco</a> and <a href="https://framed.wtf/" target="blank">Framed</a></p>
         <p>Each day a new character is picked from <a href="https://developer.marvel.com/" target="blank">{"Marvel's API"}</a>.</p>
-        <p>To play is quite simple. Guess the character name looking the blur picture. If you get a guess wron the picture becames more clear.</p>
+        <p>To play is quite simple. Guess the character name looking the blur picture. If you get a guess wrong the picture becomes more clear.</p>
         <p>All rights go to the rightful owners - no copyright infringement intended.</p>
       </ModalSection>
     </Dialog>
