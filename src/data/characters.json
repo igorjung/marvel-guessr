@@ -60,14 +60,6 @@
         "name": "Jean Grey"
     },
     {
-        "id": 1010360,
-        "name": "Thunderbolts"
-    },
-    {
-        "id": 1010682,
-        "name": "Misty Knight"
-    },
-    {
         "id": 1009223,
         "name": "Captain Britain"
     },
@@ -100,10 +92,6 @@
         "name": "Nightcrawler"
     },
     {
-        "id": 1010683,
-        "name": "New Warriors"
-    },
-    {
         "id": 1009515,
         "name": "Punisher"
     },
@@ -124,16 +112,8 @@
         "name": "Prowler"
     },
     {
-        "id": 1011336,
-        "name": "New Mutants"
-    },
-    {
         "id": 1009504,
         "name": "Professor X"
-    },
-    {
-        "id": 1010367,
-        "name": "Masque"
     },
     {
         "id": 1011084,
@@ -148,28 +128,8 @@
         "name": "Zemo"
     },
     {
-        "id": 1010738,
-        "name": "X-Factor"
-    },
-    {
         "id": 1009492,
         "name": "Patriot"
-    },
-    {
-        "id": 1011033,
-        "name": "Joystick"
-    },
-    {
-        "id": 1010810,
-        "name": "Kate Bishop"
-    },
-    {
-        "id": 1017317,
-        "name": "Cable (Deadpool)"
-    },
-    {
-        "id": 1009151,
-        "name": "Amiko"
     },
     {
         "id": 1009522,
@@ -184,20 +144,8 @@
         "name": "Klaw"
     },
     {
-        "id": 1009486,
-        "name": "Harry Osborn"
-    },
-    {
         "id": 1009356,
         "name": "Human Torch"
-    },
-    {
-        "id": 1010698,
-        "name": "Young Avengers"
-    },
-    {
-        "id": 1011339,
-        "name": "Blue Marvel"
     },
     {
         "id": 1011138,
@@ -220,20 +168,12 @@
         "name": "Bishop"
     },
     {
-        "id": 1009491,
-        "name": "Peter Parker"
-    },
-    {
         "id": 1009438,
         "name": "Medusa"
     },
     {
         "id": 1010927,
         "name": "Goliath (Bill Foster)"
-    },
-    {
-        "id": 1009585,
-        "name": "Shocker (Herman Schultz)"
     },
     {
         "id": 1009508,
@@ -248,20 +188,12 @@
         "name": "Sunspot"
     },
     {
-        "id": 1009594,
-        "name": "Silvermane"
-    },
-    {
         "id": 1009577,
         "name": "Shang-Chi"
     },
     {
         "id": 1009168,
         "name": "Banshee"
-    },
-    {
-        "id": 1010747,
-        "name": "Runaways"
     },
     {
         "id": 1009191,
@@ -312,10 +244,6 @@
         "name": "Nitro"
     },
     {
-        "id": 1009365,
-        "name": "Inhumans"
-    },
-    {
         "id": 1009726,
         "name": "X-Men"
     },
@@ -328,20 +256,12 @@
         "name": "Cable"
     },
     {
-        "id": 1009219,
-        "name": "Cannonball"
-    },
-    {
         "id": 1009652,
         "name": "Thanos"
     },
     {
         "id": 1009524,
         "name": "Quicksilver"
-    },
-    {
-        "id": 1009283,
-        "name": "Dragon Man"
     },
     {
         "id": 1009310,
@@ -356,10 +276,6 @@
         "name": "Kingpin"
     },
     {
-        "id": 1009234,
-        "name": "Chameleon"
-    },
-    {
         "id": 1009312,
         "name": "Galactus"
     },
@@ -372,14 +288,6 @@
         "name": "Black Cat"
     },
     {
-        "id": 1009165,
-        "name": "Avengers"
-    },
-    {
-        "id": 1009703,
-        "name": "Warbird"
-    },
-    {
         "id": 1009664,
         "name": "Thor"
     },
@@ -390,10 +298,6 @@
     {
         "id": 1009535,
         "name": "Red Skull"
-    },
-    {
-        "id": 1009580,
-        "name": "Shatterstar"
     },
     {
         "id": 1009297,
@@ -410,14 +314,6 @@
     {
         "id": 1009257,
         "name": "Cyclops"
-    },
-    {
-        "id": 1009271,
-        "name": "Destiny"
-    },
-    {
-        "id": 1009208,
-        "name": "Brood"
     },
     {
         "id": 1011360,
@@ -444,16 +340,8 @@
         "name": "Black Panther"
     },
     {
-        "id": 1009405,
-        "name": "Lockheed"
-    },
-    {
         "id": 1009212,
         "name": "Bullseye"
-    },
-    {
-        "id": 1010771,
-        "name": "Excalibur"
     },
     {
         "id": 1017078,
@@ -462,10 +350,6 @@
     {
         "id": 1009641,
         "name": "Swordsman"
-    },
-    {
-        "id": 1010758,
-        "name": "Illuminati"
     },
     {
         "id": 1009459,
@@ -504,26 +388,6 @@
         "name": "Hulk"
     },
     {
-        "id": 1009261,
-        "name": "Carol Danvers"
-    },
-    {
-        "id": 1011490,
-        "name": "Hank Pym"
-    },
-    {
-        "id": 1009198,
-        "name": "Blizzard"
-    },
-    {
-        "id": 1009523,
-        "name": "Quasar (Phyla-Vell)"
-    },
-    {
-        "id": 1009337,
-        "name": "Havok"
-    },
-    {
         "id": 1009243,
         "name": "Colossus"
     },
@@ -540,10 +404,6 @@
         "name": "Black Widow"
     },
     {
-        "id": 1010791,
-        "name": "Sub-Mariner"
-    },
-    {
         "id": 1009583,
         "name": "She-Hulk (Jennifer Walters)"
     },
@@ -554,10 +414,6 @@
     {
         "id": 1010740,
         "name": "Winter Soldier"
-    },
-    {
-        "id": 1009552,
-        "name": "S.H.I.E.L.D."
     },
     {
         "id": 1009581,
@@ -580,32 +436,12 @@
         "name": "Iceman"
     },
     {
-        "id": 1009636,
-        "name": "Sunfire"
-    },
-    {
-        "id": 1011299,
-        "name": "Guardians of the Galaxy"
-    },
-    {
         "id": 1009366,
         "name": "Invisible Woman"
     },
     {
         "id": 1009372,
         "name": "J. Jonah Jameson"
-    },
-    {
-        "id": 1011376,
-        "name": "Reptil"
-    },
-    {
-        "id": 1013190,
-        "name": "Morgan Le Fay"
-    },
-    {
-        "id": 1009299,
-        "name": "Fantastic Four"
     },
     {
         "id": 1009378,
