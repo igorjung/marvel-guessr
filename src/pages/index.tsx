@@ -360,7 +360,6 @@ const Home: NextPage = ({
 
   const resetGame = () => {
     const dayNumber = parseInt(getLocalStorage('days') || '0')
-
     if(days !== dayNumber) {
       setLocalStorage('guesses', JSON.stringify([]))
       setLocalStorage('isCorrect', 'false')
@@ -577,7 +576,7 @@ export const getStaticProps = async () => {
   options.sort((a, b) => a.id - b.id )
 
   return {
-    revalidate: 80000,
+    revalidate: 1000,
     props: { 
       data, 
       days,
