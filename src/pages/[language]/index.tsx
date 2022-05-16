@@ -1,7 +1,5 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
-import Router from 'next/router'
 import { useState, useMemo, useEffect } from 'react'
 import styled from 'styled-components'
 
@@ -12,7 +10,6 @@ import Form from '../../components/Form'
 import List from '../../components/List'
 import Loading from '../../components/Loading'
 import Footer from '../../components/Footer'
-import Modal from '../../components/Modal'
 import IOption from '../../interfaces/option'
 import ITexts from '../../interfaces/texts'
 import { getCharacter } from '../../services/api'
@@ -131,11 +128,7 @@ const Home: NextPage = ({
         <meta name="description" content={texts.head_title} />
       </Head>
       <Container>
-        <Header onOpenModal={(name) =>
-          name === 'about' ?
-          setInfoModal(true) :
-          setLanguageModal(true)
-        }/>
+        <Header texts={texts}/>
         <Content>
           {data ? (
             <>
@@ -176,57 +169,6 @@ const Home: NextPage = ({
         </Content>
         <Footer texts={texts.footer} />
       </Container>
-      <Modal        
-        open={infoModal} 
-        title={texts.info[0]}
-        onClose={() => setInfoModal(false)}
-      >
-        <p>{texts.info[1]} <a href="https://www.nytimes.com/games/wordle/index.html" target="blank">Wordle</a>, <a href="https://term.ooo/" target="blank">Termoo</a>, <a href="https://www.gabtoschi.com/letreco/" target="blank">Letreco</a> {texts.info[2]} <a href="https://framed.wtf/" target="blank">Framed</a></p>
-        <p>{texts.info[3]} <a href="https://developer.marvel.com/" target="blank">{texts.info[4]}</a>.</p>
-        <p>{texts.info[5]}</p>
-        <p>{texts.info[6]}</p>
-      </Modal>
-      <Modal        
-        open={languageModal} 
-        title={texts.language[0]}
-        onClose={(value) => { 
-          setLanguageModal(false);
-          if(value) Router.push(`/${value}`)
-        }}
-      >
-        <li>
-          <div>
-            <Image 
-              src={'https://flagcdn.com/h20/us.png'}
-              alt="USA flag"
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
-          <button type="button" onClick={() => {
-            setLanguageModal(false);
-            Router.push('/en')
-          }}>
-            <span>{texts.language[1]}</span>
-          </button>
-        </li>
-        <li>
-          <div>
-            <Image 
-              src={'https://flagcdn.com/h20/br.png'}
-              alt="Brazil flag"
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
-          <button type="button" onClick={() => {
-            setLanguageModal(false);
-            Router.push('/pt')
-          }}>
-            <span>{texts.language[2]}</span>
-          </button>
-        </li>
-      </Modal>
     </>
   )
 }
