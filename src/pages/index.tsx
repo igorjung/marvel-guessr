@@ -559,8 +559,8 @@ const Home: NextPage = ({ data, days } : IHome) => {
   return (
     <>
       <Head>
-        <title>AmINerdola - {labels[language].texts.title_label}</title>
-        <meta name="description" content={labels[language].texts.title_label} />
+        <title>AmINerdola - The daily marvel character guessing game</title>
+        <meta name="description" content="The daily marvel character guessing game" />
         <link rel="icon" href="/icon.png" />
       </Head>
       <Container>
