@@ -444,7 +444,7 @@
         "input": "Enter name character...",
         "correct_answer": "You got it!",
         "wrong_answer": "You missed!",
-        "title_label": "The daily marvel character guessing game",
+        "head_title": "The daily marvel character guessing game",
         "info": [
           "ABOUT",
           "This is a game for Marvel fans! Inspired by",
