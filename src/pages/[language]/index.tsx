@@ -79,19 +79,16 @@ const Home: NextPage = ({
   const [guess, setGuess] = useState<IOption | null>(null);
   const [guesses, setGuesses] = useState<IOption[]>([]);
   const [isCorrect, setIsCorrect] = useState(false);
-  const [infoModal, setInfoModal] = useState(false);
-  const [languageModal, setLanguageModal] = useState(false);
 
   const resetGame = () => {
     const dayNumber = parseInt(localStorage.getItem('days') || '0') 
     if(days !== dayNumber) {
-      localStorage.setItem('guesses', JSON.stringify([]))
+      localStorage.setItem('list', JSON.stringify([]))
       localStorage.setItem('isCorrect', 'false')
     }
     
     localStorage.setItem('days', `${days}`)
   }
-
   const handleGuessing = () => {
     if(guess.id === data.id) {
       setIsCorrect(true)
@@ -99,7 +96,7 @@ const Home: NextPage = ({
     } else {
       const guessesList = [...guesses, guess]
       setGuesses(guessesList)
-      localStorage.setItem('guesses', JSON.stringify(guessesList))
+      localStorage.setItem('list', JSON.stringify(guessesList))
     }
 
     setGuess(null)
@@ -113,7 +110,7 @@ const Home: NextPage = ({
   useEffect(() => {
     resetGame()
 
-    const guessesList = localStorage.getItem('guesses')
+    const guessesList = localStorage.getItem('list')
     const status = localStorage.getItem('isCorrect')
 
     setGuesses(JSON.parse(guessesList) || [])
