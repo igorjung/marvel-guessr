@@ -23,8 +23,8 @@ import Router from 'next/router'
 import styled from 'styled-components'
 import ReactLoading from 'react-loading'
 
-import { getCharacter } from '../services/api'
-import labels from '../data/index.json'
+import { getCharacter } from '../../services/api'
+import labels from '../../data/index.json'
 
 const Container = styled.main`
   position: relative;
@@ -368,16 +368,16 @@ const AboutModal = ({open, onClose}: IAbout) => {
   return (
     <Dialog onClose={onClose} open={open}>
       <ModalHeader>
-        <h2>{labels.en.texts.modal_title}</h2>
+        <h2>{labels.pt.texts.modal_title}</h2>
         <button type="button" onClick={onClose}>
           <Close />
         </button>
       </ModalHeader>
       <ModalSection>
-        <p>{labels.en.texts.modal_texts[0]} <a href="https://www.nytimes.com/games/wordle/index.html" target="blank">Wordle</a>, <a href="https://term.ooo/" target="blank">Termoo</a>, <a href="https://www.gabtoschi.com/letreco/" target="blank">Letreco</a> {labels.en.texts.modal_texts[1]} <a href="https://framed.wtf/" target="blank">Framed</a></p>
-        <p>{labels.en.texts.modal_texts[2]} <a href="https://developer.marvel.com/" target="blank">{labels.en.texts.modal_texts[3]}</a>.</p>
-        <p>{labels.en.texts.modal_texts[4]}</p>
-        <p>{labels.en.texts.modal_texts[5]}</p>
+        <p>{labels.pt.texts.modal_texts[0]} <a href="https://www.nytimes.com/games/wordle/index.html" target="blank">Wordle</a>, <a href="https://term.ooo/" target="blank">Termoo</a>, <a href="https://www.gabtoschi.com/letreco/" target="blank">Letreco</a> {labels.pt.texts.modal_texts[1]} <a href="https://framed.wtf/" target="blank">Framed</a></p>
+        <p>{labels.pt.texts.modal_texts[2]} <a href="https://developer.marvel.com/" target="blank">{labels.pt.texts.modal_texts[3]}</a>.</p>
+        <p>{labels.pt.texts.modal_texts[4]}</p>
+        <p>{labels.pt.texts.modal_texts[5]}</p>
       </ModalSection>
     </Dialog>
   )
@@ -391,7 +391,7 @@ const LanguageModal = ({open, onClose}: ILanguage) => {
   return (
     <Dialog onClose={() => onClose(null)} open={open}>
       <ModalHeader>
-        <h2>{labels.en.texts.languages_texts[0]}</h2>
+        <h2>{labels.pt.texts.languages_texts[0]}</h2>
         <button type="button" onClick={() => onClose(null)}>
           <Close />
         </button>
@@ -407,7 +407,7 @@ const LanguageModal = ({open, onClose}: ILanguage) => {
             />
           </div>
           <button type="button" onClick={() => onClose('en')}>
-            <span>{labels.en.texts.languages_texts[1]}</span>
+            <span>{labels.pt.texts.languages_texts[1]}</span>
           </button>
         </li>
         <li>
@@ -420,7 +420,7 @@ const LanguageModal = ({open, onClose}: ILanguage) => {
             />
           </div>
           <button type="button" onClick={() => onClose('pt')}>
-            <span>{labels.en.texts.languages_texts[2]}</span>
+            <span>{labels.pt.texts.languages_texts[2]}</span>
           </button>
         </li>
       </ModalSection>
@@ -456,11 +456,6 @@ const Home: NextPage = ({ data, days } : IHome) => {
   }
   const getLocalStorage = (key: string) => {
     return localStorage.getItem(key);
-  }
-  const getLanguage = () => {
-    if(navigator.language === 'pt-BR') {
-      Router.push('/pt')
-    }
   }
   const resetGame = () => {
     const dayNumber = parseInt(getLocalStorage('days') || '0')
@@ -520,12 +515,11 @@ const Home: NextPage = ({ data, days } : IHome) => {
   }, [data])
 
   let options = useMemo(() => {
-    const list = [...labels.en.characters]
+    const list = [...labels.pt.characters]
     return list.sort((a: IOption, b: IOption) => a.id - b.id)
   }, [])
 
   useEffect(() => {
-    getLanguage()
     resetGame()
 
     const guessesList = getLocalStorage('guesses')
@@ -539,8 +533,8 @@ const Home: NextPage = ({ data, days } : IHome) => {
   return (
     <>
       <Head>
-        <title>AmINerdola - The daily marvel character guessing game</title>
-        <meta name="description" content="The daily marvel character guessing game" />
+        <title>AmINerdola - O jogo diário de adivinhação da marvel</title>
+        <meta name="description" content="O jogo diário de adivinhação da marvel" />
         <link rel="icon" href="/icon.png" />
       </Head>
       <Container>
@@ -577,7 +571,7 @@ const Home: NextPage = ({ data, days } : IHome) => {
               </ImageContainer>
               {(isCorrect || guesses.length >= 5) ? (
                 <Text isCorrect={isCorrect}>
-                  {isCorrect ? labels.en.texts.correct_text_label : labels.en.texts.wrong_text_label}
+                  {isCorrect ? labels.pt.texts.correct_text_label : labels.pt.texts.wrong_text_label}
                 </Text>
               ) : (
                 <>
@@ -609,7 +603,7 @@ const Home: NextPage = ({ data, days } : IHome) => {
                       disabled={!guess} 
                       onClick={handleGuessing}
                     >
-                      {labels.en.texts.submitButton_label}
+                      {labels.pt.texts.submitButton_label}
                     </SubmitButton>
                   </Form>
                   <GuessNumber>
@@ -628,7 +622,7 @@ const Home: NextPage = ({ data, days } : IHome) => {
               {(isCorrect || guesses.length >= 5) && (
                 <ShareSection >
                   <button type="button" onClick={handleShare}>
-                    {labels.en.texts.shareButton_label}
+                    {labels.pt.texts.shareButton_label}
                   </button>
                 </ShareSection>
               )}
@@ -644,7 +638,7 @@ const Home: NextPage = ({ data, days } : IHome) => {
         </Content>
         <Footer>
           <p>
-            {labels.en.texts.footer_texts[0]} <a href="https://developer.marvel.com/" target="blank">{labels.en.texts.footer_texts[1]}</a> {labels.en.texts.footer_texts[2]} <a href="https://mui.com/" target="blank">{labels.en.texts.footer_texts[3]}</a>
+            {labels.pt.texts.footer_texts[0]} <a href="https://developer.marvel.com/" target="blank">{labels.pt.texts.footer_texts[1]}</a> {labels.pt.texts.footer_texts[2]} <a href="https://mui.com/" target="blank">{labels.pt.texts.footer_texts[3]}</a>
           </p>
         </Footer>
         {showAlert && (
@@ -653,7 +647,7 @@ const Home: NextPage = ({ data, days } : IHome) => {
             variant="filled" 
             severity="success"
           >
-            {labels.en.texts.shareButton_alert}
+            {labels.pt.texts.shareButton_alert}
           </SharedAlert>
         )}
       </Container>
@@ -664,8 +658,8 @@ const Home: NextPage = ({ data, days } : IHome) => {
       <LanguageModal 
         open={LanguageModalopen} 
         onClose={(value) => { 
-          setLanguageModalOpen(false);
-          if(value === 'pt') Router.push('/pt')
+					setLanguageModalOpen(false);
+					if(value === 'en') Router.push('/')
         }}
       />
     </>
