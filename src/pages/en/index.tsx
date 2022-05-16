@@ -23,8 +23,8 @@ import Router from 'next/router'
 import styled from 'styled-components'
 import ReactLoading from 'react-loading'
 
-import { getCharacter } from '../services/api'
-import labels from '../data/index.json'
+import { getCharacter } from '../../services/api'
+import labels from '../../data/index.json'
 
 const Container = styled.main`
   position: relative;
