@@ -45,11 +45,14 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=optional"
           />
-          <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.14.0/devicon.min.css&display=optional"
+          <link 
+            rel="stylesheet" 
+            href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" 
           />
-<link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet"/>
+          <link 
+            rel="icon" 
+            href="/icon.png" 
+          />
         </Head>
 
         <body>

@@ -2,15 +2,14 @@
 	"pt":
     {
       "texts": {
-        "shareButton_label": "COMPARTILHAR",
-        "shareButton_alert": "Link copiado",
-        "submitButton_label": "ENVIAR",
-        "input_label": "Insira nome do personagem...",
-        "correct_text_label": "Você acertou!",
-        "wrong_text_label": "Você errou!",
-        "title_label": "O jogo diário de adivinhação da marvel",
-        "modal_title": "SOBRE",
-        "modal_texts": [
+        "share": ["COMPARTILHAR", "Link copiado"],
+        "submit_button": "ENVIAR",
+        "input": "Insira nome do personagem...",
+        "correct_answer": "Você acertou!",
+        "wrong_answer": "Você errou!",
+        "head_title": "O jogo diário de adivinhação da marvel",
+        "info": [
+          "SOBRE",
           "Esse é um jogo para fãs da Marvel! Inspirado por",
           "e",
           "Todo dia um novo personagem é selecionado da",
@@ -18,16 +17,16 @@
           "É bem simples para jogar. Tente adivinhar o personagem usando apenas a imagem embaçada. Se você errar, a imagem fica mais nítida.",
           "Todos os direitos reservados aos donos - sem inteção de infringir direito de autor."
         ],
-        "footer_texts": [
+        "language": [
+          "Idiomas",
+          "Inglês",
+          "Português"
+        ],
+        "footer": [
           "Esse site usa",
           "API da Marvel",
           "e icones do",
           "Material UI"
-        ],
-        "languages_texts": [
-          "Idiomas",
-          "Inglês",
-          "Português"
         ]
       }, 
       "characters": [
@@ -440,15 +439,14 @@
 	"en":
     {
       "texts": {
-        "shareButton_label": "SHARE",
-        "shareButton_alert": "Copied link to clipboard",
-        "submitButton_label": "SUBMIT",
-        "input_label": "Enter name character...",
-        "correct_text_label": "You got it!",
-        "wrong_text_label": "You missed!",
+        "share": ["SHARE", "Copied link to clipboard"],
+        "submit_button": "SUBMIT",
+        "input": "Enter name character...",
+        "correct_answer": "You got it!",
+        "wrong_answer": "You missed!",
         "title_label": "The daily marvel character guessing game",
-        "modal_title": "ABOUT",
-        "modal_texts": [
+        "info": [
+          "ABOUT",
           "This is a game for Marvel fans! Inspired by",
           "and",
           "Each day a new character is picked from",
@@ -456,16 +454,16 @@
           "It is quite simple to play it. Guess the character name using just the blurred picture. If you guess it wrong, the picture becomes clearer.",
           "All rights go to the rightful owners - no copyright infringement intended."
         ],
-        "footer_texts": [
+        "language": [
+          "languages",
+          "English",
+          "Portugues"
+        ],
+        "footer": [
           "This site uses",
           "Marvel's API",
           "and icons from",
           "Material UI"
-        ],
-        "languages_texts": [
-          "languages",
-          "English",
-          "Portugues"
         ]
       }, 
       "characters": [
