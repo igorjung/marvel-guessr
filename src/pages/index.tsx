@@ -471,9 +471,13 @@ const Home: NextPage = ({ data, days } : IHome) => {
 
     if(storeLanguage) {
       setLanguage(storeLanguage)
+      setLocalStorage('language', storeLanguage)
+    } else if (navigator.language) {
+      setLanguage(navigator.language === 'pt-BR' ? 'pt' : 'en')
+      setLocalStorage('language', navigator.language === 'pt-BR' ? 'pt' : 'en')
     } else {
-      const userLang = navigator.language; 
-      setLanguage(userLang === 'pt-BR' ? 'pt' : 'en')
+      setLanguage('en')
+      setLocalStorage('language', 'en')
     }
   }
 
@@ -683,6 +687,7 @@ const Home: NextPage = ({ data, days } : IHome) => {
         language={language} 
         onClose={(value) => { 
           setLanguage(value || language);
+          setLocalStorage('language', value || language)
           setLanguageModalOpen(false)
         }}
       />
