@@ -1,8 +1,14 @@
 import type { NextPage } from 'next'
 import { useState, useMemo, useEffect } from 'react'
-import { Close, Info } from '@material-ui/icons'
+import { 
+  Close, 
+  Translate
+} from '@material-ui/icons'
 import { TextField, Dialog } from '@material-ui/core';
-import { Autocomplete, Alert } from '@material-ui/lab';
+import { 
+  Autocomplete, 
+  Alert, 
+} from '@material-ui/lab';
 import { 
   startOfDay, 
   differenceInDays, 
@@ -17,7 +23,7 @@ import styled from 'styled-components'
 import ReactLoading from 'react-loading'
 
 import { getCharacter } from '../services/api'
-import list from '../data/characters.json'
+import labels from '../data/index.json'
 
 const Container = styled.main`
   position: relative;
@@ -41,7 +47,7 @@ const Container = styled.main`
 const Header = styled.header`
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 
   width: 100%;
@@ -56,6 +62,30 @@ const Header = styled.header`
     font-weight: bold;
     color: ${({ theme }) => theme.colors.primary};
     font-family: 'Koulen', sans-serif;
+  }
+
+  button {
+    height: 28px;
+    width: 28px;
+    background-color: #000;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    svg {
+      font-size: 18px;
+      color: #fff;
+    }
+
+    span {
+      font-size: 18px;
+      color: #fff;
+      font-weight: bold;
+    }
   }
 `
 const Content = styled.div`
@@ -157,7 +187,7 @@ const ShareSection = styled.div`
 
   button {
     height: 42px;
-    width: 120px;
+    padding: 0 15px;
 
     font-size: 22px;
     line-height: 26px;
@@ -255,7 +285,7 @@ const ModalHeader = styled.header`
 
   width: 100%;
   margin-bottom: 24px;
-  padding: 16px 32px 0 32px;
+  padding: 32px 32px 0 32px;
 
   h2 {
     color: ${({ theme }) => theme.colors.text};
@@ -277,7 +307,7 @@ const ModalSection = styled.section`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 0 32px 16px 32px;
+  padding: 0 32px 32px 32px;
 
   p {
     font-size: 16px;
@@ -292,7 +322,38 @@ const ModalSection = styled.section`
       font-weight: bold;
     }
   }
+
+  li {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    & + li {
+      margin-top: 18px;
+    }
+
+    div {
+      position: relative;
+      height: 20px;
+      width: 30px;
+    }
+
+    span {
+      font-size: 20px;
+      line-height: 24px;
+      color: ${({ theme }) => theme.colors.text};
+      font-weight: 600;
+      margin-left: 12px;
+
+      &:hover {
+        color: ${({ theme }) => theme.colors.primary}; 
+      }
+    }
+  }
 `
+
 const SharedAlert = styled(Alert)`
   position: absolute;
   top: 80px;
@@ -301,26 +362,79 @@ const SharedAlert = styled(Alert)`
 `
 export interface IAbout {
   open: boolean;
+  language: string,
   onClose: () => void;
 }
 
-const AboutModal = ({open, onClose}: IAbout) => {
+const AboutModal = ({open, language, onClose}: IAbout) => {
   return (
     <Dialog onClose={onClose} open={open}>
       <ModalHeader>
-        <h2>ABOUT</h2>
+        <h2>{labels[language].texts.modal_title}</h2>
         <button type="button" onClick={onClose}>
           <Close />
         </button>
       </ModalHeader>
       <ModalSection>
-        <p>This is a game for Marvel fans! Inspired by <a href="https://www.nytimes.com/games/wordle/index.html" target="blank">Wordle</a>, <a href="https://term.ooo/" target="blank">Termoo</a>, <a href="https://www.gabtoschi.com/letreco/" target="blank">Letreco</a> and <a href="https://framed.wtf/" target="blank">Framed</a></p>
-        <p>Each day a new character is picked from <a href="https://developer.marvel.com/" target="blank">{"Marvel's API"}</a>.</p>
-        <p>It is quite simple to play it. Guess the character name using just the blurred picture. If you guess it wrong, the picture becomes clearer.</p>
-        <p>All rights go to the rightful owners - no copyright infringement intended.</p>
+        <p>{labels[language].texts.modal_texts[0]} <a href="https://www.nytimes.com/games/wordle/index.html" target="blank">Wordle</a>, <a href="https://term.ooo/" target="blank">Termoo</a>, <a href="https://www.gabtoschi.com/letreco/" target="blank">Letreco</a> {labels[language].texts.modal_texts[1]} <a href="https://framed.wtf/" target="blank">Framed</a></p>
+        <p>{labels[language].texts.modal_texts[2]} <a href="https://developer.marvel.com/" target="blank">{labels[language].texts.modal_texts[3]}</a>.</p>
+        <p>{labels[language].texts.modal_texts[4]}</p>
+        <p>{labels[language].texts.modal_texts[5]}</p>
       </ModalSection>
     </Dialog>
   )
+}
+
+export interface ILanguage {
+  open: boolean;
+  language: string,
+  onClose: (value: string | null) => void;
+}
+
+const LanguageModal = ({open, language, onClose}: ILanguage) => {
+  return (
+    <Dialog onClose={() => onClose(null)} open={open}>
+      <ModalHeader>
+        <h2>{labels[language].texts.languages_texts[0]}</h2>
+        <button type="button" onClick={() => onClose(null)}>
+          <Close />
+        </button>
+      </ModalHeader>
+      <ModalSection>
+        <li>
+          <div>
+            <Image 
+              src={'https://flagcdn.com/h20/us.png'}
+              alt="Brazil flag"
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+          <button type="button" onClick={() => onClose('en')}>
+            <span>{labels[language].texts.languages_texts[1]}</span>
+          </button>
+        </li>
+        <li>
+          <div>
+            <Image 
+              src={'https://flagcdn.com/h20/br.png'}
+              alt="USA flag"
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+          <button type="button" onClick={() => onClose('pt')}>
+            <span>{labels[language].texts.languages_texts[2]}</span>
+          </button>
+        </li>
+      </ModalSection>
+    </Dialog>
+  )
+}
+
+interface IOption {
+  id: number,
+  name: string,
 }
 
 interface IHome {
@@ -333,22 +447,16 @@ interface IHome {
     },
   },
   days: number,
-  options: [{
-    id: number,
-    name: string,
-  }]
 }
 
-const Home: NextPage = ({ 
-  data, 
-  days,
-  options
-} : IHome) => {
+const Home: NextPage = ({ data, days } : IHome) => {
+  const [language, setLanguage] = useState('en')
+  const [guess, setGuess] = useState<IOption | null>(null);
+  const [guesses, setGuesses] = useState<IOption[]>([]);
   const [isCorrect, setIsCorrect] = useState(false);
-  const [guesses, setGuesses] = useState([]);
-  const [guess, setGuess] = useState('');
-  const [open, setOpen] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
+  const [aboutModalopen, setAboutModalOpen] = useState(false);
+  const [LanguageModalopen, setLanguageModalOpen] = useState(false);
 
   const setLocalStorage = (key: string, value: string) => {
     localStorage.setItem(key, value)
@@ -356,6 +464,17 @@ const Home: NextPage = ({
 
   const getLocalStorage = (key: string) => {
     return localStorage.getItem(key);
+  }
+
+  const getLanguage = () => {
+    const storeLanguage = getLocalStorage('language')
+
+    if(storeLanguage) {
+      setLanguage(storeLanguage)
+    } else {
+      const userLang = navigator.language; 
+      setLanguage(userLang === 'pt-BR' ? 'pt' : 'en')
+    }
   }
 
   const resetGame = () => {
@@ -369,7 +488,7 @@ const Home: NextPage = ({
   }
 
   const handleGuessing = () => {
-    if(guess === answer) {
+    if(guess.id === answer) {
       setIsCorrect(true)
       setLocalStorage(
         'isCorrect',
@@ -384,7 +503,7 @@ const Home: NextPage = ({
       )
     }
 
-    setGuess('')
+    setGuess(null)
   }
 
   const handleShare = async (evt: { preventDefault: () => void; }) => {
@@ -408,7 +527,7 @@ const Home: NextPage = ({
   const [answer, thumbnail] = useMemo(() => {
     if(data && data.name && data.thumbnail) {
       return [
-        data.name,
+        data.id,
         `${data.thumbnail.path}.${data.thumbnail.extension}`,
       ]
     }
@@ -416,7 +535,13 @@ const Home: NextPage = ({
     return ['', '']
   }, [data])
 
+  let options = useMemo(() => {
+    const list = labels[language].characters
+    return list.sort((a: IOption, b: IOption) => a.id - b.id)
+  }, [language])
+
   useEffect(() => {
+    getLanguage()
     resetGame()
 
     const guessesList = getLocalStorage('guesses')
@@ -430,27 +555,30 @@ const Home: NextPage = ({
   return (
     <>
       <Head>
-        <title>AmINerdola - The daily marvel character guessing game</title>
-        <meta name="description" content="The daily marvel character guessing game" />
+        <title>AmINerdola - {labels[language].texts.title_label}</title>
+        <meta name="description" content={labels[language].texts.title_label} />
         <link rel="icon" href="/icon.png" />
       </Head>
       <Container>
         <Header>
-          <div style={{ width:'24px', height:'24px' }}/>
+          <button type="button" onClick={() => setLanguageModalOpen(true)}>
+            <Translate />
+          </button>
           <h1>
             AMINERDOLA
           </h1>
-          <div>
-            <button type="button" onClick={() => setOpen(true)}>
-              <Info />
-            </button>
-          </div>
+          <button type="button" onClick={() => setAboutModalOpen(true)}>
+            <span>i</span>
+          </button>
         </Header>
         <Content>
           {thumbnail ? (
             <>
               <span className="answer">
-                {(isCorrect || guesses.length >= 5) ? answer : '???'}
+                {(isCorrect || guesses.length >= 5) ?
+                 options[options.map((x: IOption) => x.id).indexOf(answer)].name :
+                 '???'
+                }
               </span>
               <ImageContainer guesses={guesses.length} isCorrect={isCorrect}>
                 <div>
@@ -465,7 +593,7 @@ const Home: NextPage = ({
               </ImageContainer>
               {(isCorrect || guesses.length >= 5) ? (
                 <Text isCorrect={isCorrect}>
-                  {isCorrect ? 'You got it!' : 'You missed!'}
+                  {isCorrect ? labels[language].texts.correct_text_label : labels[language].texts.wrong_text_label}
                 </Text>
               ) : (
                 <>
@@ -473,8 +601,9 @@ const Home: NextPage = ({
                     <Autocomplete
                       id="guessing-input"
                       value={guess || null}
-                      options={options.map((option) => option.name)}
-                      onChange={(event: any, newValue: string | null) => {
+                      options={options}
+                      getOptionLabel={(options) => options.name}
+                      onChange={(event: any, newValue: IOption) => {
                         setGuess(newValue)
                       }}
                       clearOnEscape
@@ -496,7 +625,7 @@ const Home: NextPage = ({
                       disabled={!guess} 
                       onClick={handleGuessing}
                     >
-                      SUBMIT
+                      {labels[language].texts.submitButton_label}
                     </SubmitButton>
                   </Form>
                   <GuessNumber>
@@ -506,16 +635,16 @@ const Home: NextPage = ({
               )}
               <List>
                 {guesses && guesses.map((item, index) => (
-                  <li key={`${item}-${index}`}>
+                  <li key={`${item.id}-${index}`}>
                     <Close />
-                    {item}
+                    {options[options.map((x: IOption) => x.id).indexOf(item.id)].name}
                   </li>
                 ))}
               </List>
               {(isCorrect || guesses.length >= 5) && (
                 <ShareSection >
                   <button type="button" onClick={handleShare}>
-                    SHARE
+                    {labels[language].texts.shareButton_label}
                   </button>
                 </ShareSection>
               )}
@@ -531,7 +660,7 @@ const Home: NextPage = ({
         </Content>
         <Footer>
           <p>
-            This site uses <a href="https://developer.marvel.com/" target="blank">{"Marvel's API"}</a> and icons from <a href="https://mui.com/" target="blank">Material UI</a>
+            {labels[language].texts.footer_texts[0]} <a href="https://developer.marvel.com/" target="blank">{labels[language].texts.footer_texts[1]}</a> {labels[language].texts.footer_texts[2]} <a href="https://mui.com/" target="blank">{labels[language].texts.footer_texts[3]}</a>
           </p>
         </Footer>
         {showAlert && (
@@ -540,11 +669,23 @@ const Home: NextPage = ({
             variant="filled" 
             severity="success"
           >
-            Copied link to clipboard
+            {labels[language].texts.shareButton_alert}
           </SharedAlert>
         )}
       </Container>
-      <AboutModal open={open} onClose={() => setOpen(false)}/>
+      <AboutModal 
+        open={aboutModalopen} 
+        language={language} 
+        onClose={() => setAboutModalOpen(false)}
+      />
+      <LanguageModal 
+        open={LanguageModalopen} 
+        language={language} 
+        onClose={(value) => { 
+          setLanguage(value || language);
+          setLanguageModalOpen(false)
+        }}
+      />
     </>
   )
 }
@@ -570,18 +711,11 @@ const getDates = () => {
 
 export const getStaticProps = async () => {
   const days = getDates()
-  const [data] = await getCharacter(list.characters[days].id)
-
-  const options = [...list.characters]
-  options.sort((a, b) => a.id - b.id )
+  const [data] = await getCharacter(labels.en.characters[days].id)
 
   return {
     revalidate: 1000,
-    props: { 
-      data, 
-      days,
-      options
-    }
+    props: { data, days }
   };
 };
 
