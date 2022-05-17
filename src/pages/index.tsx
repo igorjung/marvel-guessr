@@ -33,8 +33,8 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>AmINerdola - The daily marvel character guessing game</title>
-        <meta name="description" content="The daily marvel character guessing game" />
+        <title>MarvelGuessr - The daily marvel guessing game</title>
+        <meta name="description" content="The daily marvel guessing game" />
       </Head>
       <Container>
         <Loading />
