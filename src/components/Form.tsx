@@ -1,7 +1,9 @@
+import { useMemo } from 'react'
 import { TextField } from '@material-ui/core';
 import { Autocomplete } from '@material-ui/lab';
 import styled from 'styled-components'
 import IOption from '../interfaces/option'
+import { getAlphabeticalList } from '../utils'
 
 const FormContainer = styled.div`
   display: grid;
@@ -54,7 +56,7 @@ const GuessNumber = styled.span`
 `
 
 interface IForm {
-  options: IOption[]
+  list: IOption[]
   guesses: IOption[]
   guess: IOption
   text: string
@@ -62,13 +64,18 @@ interface IForm {
   onConfirm: () => void
 }
 const Form = ({ 
-  options, 
+  list, 
   guesses, 
   guess,
   text,
   onInsert,
   onConfirm
 } : IForm) => {
+
+  let options = useMemo(() => {
+    return getAlphabeticalList(list)
+  }, [list])
+
   return (
     <>
       <FormContainer>
