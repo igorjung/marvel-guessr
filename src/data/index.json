@@ -48,11 +48,7 @@
         },
         {
           "id": 1009220,
-          "name": "Capitão America"
-        },
-        {
-          "id": 1009407,
-          "name": "Loki"
+          "name": "Capitão América"
         },
         {
           "id": 1009697,
@@ -99,16 +95,12 @@
           "name": "Capitão Britânia"
         },
         {
-          "id": 1017834,
-          "name": "Máquina de Compate (James Rhodes)"
-        },
-        {
           "id": 1009452,
           "name": "Cavaleiro da Lua"
         },
         {
           "id": 1017575,
-          "name": "Capitão America (Sam Wilson)"
+          "name": "Capitão América (Sam Wilson)"
         },
         {
           "id": 1011095,
@@ -171,10 +163,6 @@
           "name": "Homem de Ferro"
         },
         {
-          "id": 1010780,
-          "name": "Zemo"
-        },
-        {
           "id": 1009492,
           "name": "Patriota"
         },
@@ -185,10 +173,6 @@
         {
           "id": 1009522,
           "name": "Pyro"
-        },
-        {
-          "id": 1017824,
-          "name": "Miss América (America Chavez)"
         },
         {
           "id": 1010338,
@@ -276,7 +260,7 @@
         },
         {
           "id": 1009662,
-          "name": "Thing"
+          "name": "Coisa"
         },
         {
           "id": 1009262,
@@ -401,10 +385,6 @@
         {
           "id": 1009639,
           "name": "Super-Skrull"
-        },
-        {
-          "id": 1009733,
-          "name": "Charles Xavier"
         },
         {
           "id": 1009610,
@@ -540,10 +520,6 @@
           "name": "Captain America"
         },
         {
-          "id": 1009407,
-          "name": "Loki"
-        },
-        {
           "id": 1009697,
           "name": "Vision"
         },
@@ -586,10 +562,6 @@
         {
           "id": 1009223,
           "name": "Captain Britain"
-        },
-        {
-          "id": 1017834,
-          "name": "War Machine (James Rhodes)"
         },
         {
           "id": 1009452,
@@ -660,10 +632,6 @@
           "name": "Iron Man"
         },
         {
-          "id": 1010780,
-          "name": "Zemo"
-        },
-        {
           "id": 1009492,
           "name": "Patriot"
         },
@@ -674,10 +642,6 @@
         {
           "id": 1009522,
           "name": "Pyro"
-        },
-        {
-          "id": 1017824,
-          "name": "Ms. America (America Chavez)"
         },
         {
           "id": 1010338,
@@ -890,10 +854,6 @@
         {
           "id": 1009639,
           "name": "Super-Skrull"
-        },
-        {
-          "id": 1009733,
-          "name": "Charles Xavier"
         },
         {
           "id": 1009610,

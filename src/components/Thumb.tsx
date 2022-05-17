@@ -21,6 +21,16 @@ const ImageContainer = styled.div<{guesses: number, isCorrect: boolean}>`
     filter: ${({ isCorrect, guesses }) => isCorrect ? `blur(0px)` : `blur(${(5 - guesses) * 5}px)`};
   }
 
+  .thumb-container:after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+  }
+
   @media only screen and (max-width: 820px) {
     width: 100%;
     background-color: none;
@@ -68,7 +78,7 @@ const Thumb = ({
         }
       </span>
       <ImageContainer guesses={guesses.length} isCorrect={isCorrect}>
-        <div>
+        <div className='thumb-container'>
           <Image 
             alt='image'
             layout='fill'
