@@ -51,8 +51,8 @@
           "name": "Capitão America"
         },
         {
-          "id": 1010788,
-          "name": "Venom (Mac Gargan)"
+          "id": 1009407,
+          "name": "Loki"
         },
         {
           "id": 1009697,
@@ -63,12 +63,20 @@
           "name": "Dominó"
         },
         {
+          "id": 1010743,
+          "name": "Groot"
+        },
+        {
           "id": 1011323,
           "name": "Sentinelas"
         },
         {
           "id": 1009282,
           "name": "Doutor Estranho"
+        },
+        {
+          "id": 1009156,
+          "name": "Apocalipse"
         },
         {
           "id": 1009719,
@@ -88,15 +96,19 @@
         },
         {
           "id": 1009223,
-          "name": "Capitaão Britânia"
+          "name": "Capitão Britânia"
         },
         {
-          "id": 1009538,
-          "name": "Patriota de Ferro (James Rhodes)"
+          "id": 1017834,
+          "name": "Máquina de Compate (James Rhodes)"
         },
         {
           "id": 1009452,
           "name": "Cavaleiro da Lua"
+        },
+        {
+          "id": 1017575,
+          "name": "Capitão America (Sam Wilson)"
         },
         {
           "id": 1011095,
@@ -109,6 +121,10 @@
         {
           "id": 1009215,
           "name": "Luke Cage"
+        },
+        {
+          "id": 1017577,
+          "name": "Miss Marvel (Kamala Khan)"
         },
         {
           "id": 1011335,
@@ -135,12 +151,20 @@
           "name": "Blob"
         },
         {
+          "id": 1009288,
+          "name": "Elektra"
+        },
+        {
           "id": 1009507,
           "name": "Gatuno"
         },
         {
           "id": 1009504,
           "name": "Professor X"
+        },
+        {
+          "id": 1009737,
+          "name": "Jaqueta Amarela (Hank Pym)"
         },
         {
           "id": 1009368,
@@ -154,9 +178,17 @@
           "id": 1009492,
           "name": "Patriota"
         },
+        {       
+          "id": 1009265,
+          "name": "Fênix Negra"
+        },
         {
           "id": 1009522,
           "name": "Pyro"
+        },
+        {
+          "id": 1017824,
+          "name": "Miss América (America Chavez)"
         },
         {
           "id": 1010338,
@@ -193,6 +225,10 @@
         {
           "id": 1009438,
           "name": "Medusa"
+        },
+        {
+          "id": 1016181,
+          "name": "Homem-Aranha (Miles Morales)"
         },
         {
           "id": 1010927,
@@ -257,6 +293,10 @@
         {
           "id": 1009214,
           "name": "Cable"
+        },
+        {
+          "id": 1017603,
+          "name": "Gwen-Aranha (Gwen Stacy)"
         },
         {
           "id": 1009652,
@@ -335,6 +375,10 @@
           "name": "Jubileu"
         },
         {
+          "id": 1014873,
+          "name": "Homem-Aranha (2099)"
+        },
+        {
           "id": 1009187,
           "name": "Pantera Negra"
         },
@@ -355,8 +399,8 @@
           "name": "Capitão Marvel (Mar-Vell)"
         },
         {
-          "id": 1009599,
-          "name": "Skrulls"
+          "id": 1009639,
+          "name": "Super-Skrull"
         },
         {
           "id": 1009733,
@@ -377,6 +421,10 @@
         {
           "id": 1009351,
           "name": "Hulk"
+        },
+        {
+          "id": 1009592,
+          "name": "Surfista Prateado"
         },
         {
           "id": 1009243,
@@ -401,6 +449,10 @@
         {
           "id": 1010740,
           "name": "Soldado Invernal"
+        },
+        {
+          "id": 1017576,
+          "name": "Thor (Deusa do Trovão)"
         },
         {
           "id": 1009581,
@@ -488,8 +540,8 @@
           "name": "Captain America"
         },
         {
-          "id": 1010788,
-          "name": "Venom (Mac Gargan)"
+          "id": 1009407,
+          "name": "Loki"
         },
         {
           "id": 1009697,
@@ -500,12 +552,20 @@
           "name": "Domino"
         },
         {
+          "id": 1010743,
+          "name": "Groot"
+        },
+        {
           "id": 1011323,
           "name": "Sentinels"
         },
         {
           "id": 1009282,
           "name": "Doctor Strange"
+        },
+        {
+          "id": 1009156,
+          "name": "Apocalypse"
         },
         {
           "id": 1009719,
@@ -528,12 +588,16 @@
           "name": "Captain Britain"
         },
         {
-          "id": 1009538,
-          "name": "Iron Patriot (James Rhodes)"
+          "id": 1017834,
+          "name": "War Machine (James Rhodes)"
         },
         {
           "id": 1009452,
           "name": "Moon Knight"
+        },
+        {
+          "id": 1017575,
+          "name": "Captain America (Sam Wilson)"
         },
         {
           "id": 1011095,
@@ -546,6 +610,10 @@
         {
           "id": 1009215,
           "name": "Luke Cage"
+        },
+        {        
+          "id": 1017577,
+          "name": "Ms. Marvel (Kamala Khan)"
         },
         {
           "id": 1011335,
@@ -572,12 +640,20 @@
           "name": "Blob"
         },
         {
+          "id": 1009288,
+          "name": "Elektra"
+        },
+        {
           "id": 1009507,
           "name": "Prowler"
         },
         {
           "id": 1009504,
           "name": "Professor X"
+        },
+        {
+          "id": 1009737,
+          "name": "Yellowjacket (Hank Pym)"
         },
         {
           "id": 1009368,
@@ -591,9 +667,17 @@
           "id": 1009492,
           "name": "Patriot"
         },
+        {       
+          "id": 1009265,
+          "name": "Dark Phoenix"
+        },
         {
           "id": 1009522,
           "name": "Pyro"
+        },
+        {
+          "id": 1017824,
+          "name": "Ms. America (America Chavez)"
         },
         {
           "id": 1010338,
@@ -630,6 +714,10 @@
         {
           "id": 1009438,
           "name": "Medusa"
+        },
+        {
+          "id": 1016181,
+          "name": "Spider-Man (Miles Morales)"
         },
         {
           "id": 1010927,
@@ -694,6 +782,10 @@
         {
           "id": 1009214,
           "name": "Cable"
+        },
+        {
+          "id": 1017603,
+          "name": "Spider-Gwen (Gwen Stacy)"
         },
         {
           "id": 1009652,
@@ -772,6 +864,10 @@
           "name": "Jubilee"
         },
         {
+          "id": 1014873,
+          "name": "Spider-Man (2099)"
+        },
+        {
           "id": 1009187,
           "name": "Black Panther"
         },
@@ -792,8 +888,8 @@
           "name": "Captain Marvel (Mar-Vell)"
         },
         {
-          "id": 1009599,
-          "name": "Skrulls"
+          "id": 1009639,
+          "name": "Super-Skrull"
         },
         {
           "id": 1009733,
@@ -814,6 +910,10 @@
         {
           "id": 1009351,
           "name": "Hulk"
+        },
+        {
+          "id": 1009592,
+          "name": "Silver Surfer"
         },
         {
           "id": 1009243,
@@ -838,6 +938,10 @@
         {
           "id": 1010740,
           "name": "Winter Soldier"
+        },
+        {
+          "id": 1017576,
+          "name": "Thor (Goddess of Thunder)"
         },
         {
           "id": 1009581,

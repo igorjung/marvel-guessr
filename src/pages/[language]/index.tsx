@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import json from '../../data/index.json'
@@ -14,6 +14,7 @@ import IOption from '../../interfaces/option'
 import ITexts from '../../interfaces/texts'
 import { getCharacter } from '../../services/api'
 import { getDates } from '../../services/date'
+import { ContactsOutlined } from '@material-ui/icons'
 
 const Container = styled.main`
   position: relative;
@@ -79,6 +80,7 @@ const Home: NextPage = ({
   const [guess, setGuess] = useState<IOption | null>(null);
   const [guesses, setGuesses] = useState<IOption[]>([]);
   const [isCorrect, setIsCorrect] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const resetGame = () => {
     const dayNumber = parseInt(localStorage.getItem('days') || '0') 
@@ -102,12 +104,8 @@ const Home: NextPage = ({
     setGuess(null)
   }
 
-  let options = useMemo(() => {
-    const list = [...characters]
-    return list.sort((a, b) => a.id - b.id)
-  }, [characters])
-
   useEffect(() => {
+    setLoading(true)
     resetGame()
 
     const guessesList = localStorage.getItem('list')
@@ -115,6 +113,7 @@ const Home: NextPage = ({
 
     setGuesses(JSON.parse(guessesList) || [])
     setIsCorrect(status === 'true')
+    setLoading(false)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -127,10 +126,10 @@ const Home: NextPage = ({
       <Container>
         <Header texts={texts}/>
         <Content>
-          {data ? (
+          {!loading ? (
             <>
               <Thumb
-                options={options}
+                list={characters}
                 guesses={guesses}
                 isCorrect={isCorrect}
                 data={data}
@@ -144,7 +143,7 @@ const Home: NextPage = ({
                 </Text>
               ) : (
                 <Form 
-                  options={options}
+                  list={characters}
                   guesses={guesses}
                   guess={guess}
                   text={texts.submit_button}
@@ -154,7 +153,7 @@ const Home: NextPage = ({
               )}
               <List 
                 guesses={guesses} 
-                options={options}
+                list={characters}
                 isCorrect={isCorrect}
                 texts={texts.share}
                 days={days}
@@ -183,8 +182,8 @@ export const getStaticProps = async (context: {params: {language: string}}) => {
       texts: json[language].texts,
       characters: json[language].characters
     }
-  };
-};
+  }
+}
 
 export async function getStaticPaths() {
   const languages = ['pt', 'en'];
@@ -193,7 +192,7 @@ export async function getStaticPaths() {
   return {
     paths,
     fallback: false,
-  };
+  }
 }
 
 export default Home

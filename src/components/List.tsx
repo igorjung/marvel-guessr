@@ -3,6 +3,7 @@ import { Alert } from '@material-ui/lab';
 import { Close } from '@material-ui/icons'
 import styled from 'styled-components'
 import IOption from '../interfaces/option'
+import { getNameById } from '../utils'
 
 const ListContainer = styled.ul`
   display: flex;
@@ -75,14 +76,14 @@ const SharedAlert = styled(Alert)`
 
 interface IList {
   guesses: IOption[]
-  options: IOption[]
+  list: IOption[]
   isCorrect: boolean
   texts: string[]
   days: number
 }
 const List = ({ 
   guesses,
-  options,
+  list,
   isCorrect,
   texts,
   days
@@ -95,7 +96,7 @@ const List = ({
         title: 'AmINerdola',
         text: `Am I Nerdola? ${isCorrect ? 'Yes' : 'No'} #${days}`,
         url: `${window.location.href}`,
-      };    
+      }
 
       await navigator.share(shareData);
     } else {
@@ -113,7 +114,7 @@ const List = ({
       {guesses && guesses.map((item, index) => (
         <li key={`${item.id}-${index}`}>
           <Close />
-          {options[options.map((x: IOption) => x.id).indexOf(item.id)].name}
+          {getNameById(list, item.id)}
         </li>
       ))}      
     </ListContainer>

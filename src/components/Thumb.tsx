@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import styled from 'styled-components'
 import IOption from '../interfaces/option'
+import { getNameById } from '../utils'
 
 const ImageContainer = styled.div<{guesses: number, isCorrect: boolean}>`
   display: flex;
@@ -38,7 +39,7 @@ const ImageContainer = styled.div<{guesses: number, isCorrect: boolean}>`
 `
 
 interface IThumb {
-  options: IOption[]
+  list: IOption[]
   guesses: IOption[]
   isCorrect: boolean
   data: {
@@ -51,7 +52,7 @@ interface IThumb {
   }
 }
 const Thumb = ({
-  options, 
+  list, 
   guesses, 
   isCorrect,
   data,
@@ -62,7 +63,7 @@ const Thumb = ({
     <>
       <span className="answer">
         {(isCorrect || guesses.length >= 5) ?
-        options[options.map((x: IOption) => x.id).indexOf(data.id)].name :
+        getNameById(list, data.id) :
         '???'
         }
       </span>
