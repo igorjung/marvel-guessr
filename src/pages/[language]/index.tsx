@@ -120,7 +120,7 @@ const Home: NextPage = ({
   return (
     <>
       <Head>
-        <title>AmINerdola - {texts.head_title}</title>
+        <title>MarvelGuessr - {texts.head_title}</title>
         <meta name="description" content={texts.head_title} />
       </Head>
       <Container>

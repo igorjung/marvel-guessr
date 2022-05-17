@@ -18,17 +18,20 @@ const HeaderContainer = styled.header`
 
   border-bottom: 2px solid #2A3740;
 
-  h1 {
-    font-size: 28px;
-    line-height: 32px;
-    font-weight: bold;
-    color: ${({ theme }) => theme.colors.primary};
-    font-family: 'Koulen', sans-serif;
+  div {
+    position: relative;
+    height: 30px;
+    width: 223px;
+
+    @media only screen and (max-width: 820px) {
+      height: 28px;
+      width: 208px;
+    }
   }
 
   button {
     height: 28px;
-    width: 28px;
+    width: 30px;
     background-color: #000;
     border-radius: 50%;
 
@@ -67,9 +70,14 @@ const Header = ({ texts } : IHeader) => {
         >
           <Translate />
         </button>
-        <h1>
-          AMINERDOLA
-        </h1>
+        <div>
+          <Image 
+            src={'/images/Logo.png'}
+            alt="MarvelGuessr"
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
         <button 
           type="button" 
           onClick={() => setInfoModal(true)}
