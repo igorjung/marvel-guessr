@@ -4,7 +4,7 @@ const Loading = () => {
   return (
     <ReactLoading 
       type={'bubbles'} 
-      color={'#D90452'} 
+      color={'#ED1D24'} 
       height={90} 
       width={90} 
     />
