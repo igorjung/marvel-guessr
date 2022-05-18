@@ -47,36 +47,6 @@ const ModalSection = styled.section`
       font-weight: bold;
     }
   }
-
-  li {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-
-    & + li {
-      margin-top: 18px;
-    }
-
-    div {
-      position: relative;
-      height: 20px;
-      width: 30px;
-    }
-
-    span {
-      font-size: 20px;
-      line-height: 24px;
-      color: ${({ theme }) => theme.colors.text};
-      font-weight: 600;
-      margin-left: 12px;
-
-      &:hover {
-        color: ${({ theme }) => theme.colors.primary}; 
-      }
-    }
-  }
 `
 
 interface IModal {
