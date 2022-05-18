@@ -14,9 +14,19 @@ import IOption from '../../interfaces/option'
 import ITexts from '../../interfaces/texts'
 import { getCharacter } from '../../services/api'
 import { getDates } from '../../services/date'
-import { ContactsOutlined } from '@material-ui/icons'
 
-const Container = styled.main`
+const Wrapper = styled.main`
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  color: ${({ theme }) => theme.colors.text};
+  background-color: ${({ theme }) => theme.colors.background};
+`
+const Container = styled.div`
   position: relative;
 
   display: flex;
@@ -24,8 +34,8 @@ const Container = styled.main`
   align-items: center;
   justify-content: center;
 
-  width: 100vw;
-  max-width: 800px;
+  width: 100%;
+  max-width: 1120px;
   height: 100%;
   min-height: 100vh;
 
@@ -51,13 +61,17 @@ const Content = styled.div`
 `
 const Text = styled.p<{isCorrect: boolean}>`
   font-size: 24px;
-  color: ${({isCorrect}) => isCorrect ? '#081B2B' : '#450003'};
+  color: ${({theme, isCorrect}) => 
+    isCorrect ? 
+    theme.colors.correct : 
+    theme.colors.error
+  };
+
   font-weight: 600;
   width: 100%;
   text-align: center;
   margin-top: 16px;
 `
-
 interface IHome {
   data: {
     id: number
@@ -123,48 +137,50 @@ const Home: NextPage = ({
         <title>MarvelGuessr - {texts.head_title}</title>
         <meta name="description" content={texts.head_title} />
       </Head>
-      <Container>
-        <Header texts={texts}/>
-        <Content>
-          {!loading ? (
-            <>
-              <Thumb
-                list={characters}
-                guesses={guesses}
-                isCorrect={isCorrect}
-                data={data}
-              />
-              {(isCorrect || guesses.length >= 5) ? (
-                <Text isCorrect={isCorrect}>
-                  {isCorrect ?
-                    texts.correct_answer :
-                    texts.wrong_answer
-                  }
-                </Text>
-              ) : (
-                <Form 
+      <Wrapper>
+        <Container>
+          <Header texts={texts}/>
+          <Content>
+            {!loading ? (
+              <>
+                <Thumb
                   list={characters}
                   guesses={guesses}
-                  guess={guess}
-                  text={texts.submit_button}
-                  onInsert={(value) => setGuess(value)}
-                  onConfirm={handleGuessing}
+                  isCorrect={isCorrect}
+                  data={data}
                 />
-              )}
-              <List 
-                guesses={guesses} 
-                list={characters}
-                isCorrect={isCorrect}
-                texts={texts.share}
-                days={days}
-              />
-            </>
-          ): (
-            <Loading />
-          )}
-        </Content>
-        <Footer texts={texts.footer} />
-      </Container>
+                {(isCorrect || guesses.length >= 5) ? (
+                  <Text isCorrect={isCorrect}>
+                    {isCorrect ?
+                      texts.correct_answer :
+                      texts.wrong_answer
+                    }
+                  </Text>
+                ) : (
+                  <Form 
+                    list={characters}
+                    guesses={guesses}
+                    guess={guess}
+                    text={texts.submit_button}
+                    onInsert={(value) => setGuess(value)}
+                    onConfirm={handleGuessing}
+                  />
+                )}
+                <List 
+                  guesses={guesses} 
+                  list={characters}
+                  isCorrect={isCorrect}
+                  texts={texts.share}
+                  days={days}
+                />
+              </>
+            ): (
+              <Loading />
+            )}
+          </Content>
+          <Footer texts={texts.footer} />
+        </Container>
+      </Wrapper>
     </>
   )
 }

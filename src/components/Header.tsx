@@ -17,7 +17,7 @@ const HeaderContainer = styled.header`
   margin-bottom: 48px;
   padding-bottom: 16px;
 
-  border-bottom: 2px solid #2A3740;
+  border-bottom: 2px solid ${({ theme }) => theme.colors.secondary};
 
   div {
     position: relative;
@@ -42,7 +42,7 @@ const HeaderContainer = styled.header`
 
     svg {
       font-size: 24px;
-      color: #000;
+      color: ${({ theme }) => theme.colors.text};
     }
   }
 `

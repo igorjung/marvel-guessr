@@ -3,7 +3,6 @@ import Router from 'next/router'
 import { useState, useEffect } from 'react'
 import { Switch } from '@material-ui/core';
 import { 
-  Translate, 
   Brightness2, 
   Brightness7,
   Close, 
@@ -29,7 +28,7 @@ const SideMenuContainer = styled.div<{open: boolean}>`
   padding: 32px 24px 8px 24px;
   border-radius: 0 8px 8px 0;
 
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.secondary};
   z-index: 1;
 `
 const MenuHeader = styled.header`
@@ -41,18 +40,18 @@ const MenuHeader = styled.header`
   width: 100%;
   padding-bottom: 16px;
   margin-bottom: 32px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.secondary};
 
   h1 {
     font-family: 'Koulen', cursive;
     font-size: 40px;
     line-height: 44px;
-    color: #ED1D24;
+    color: ${({ theme }) => theme.colors.primary};
   }
 
   svg {
     font-size: 20px;
-    color: #000;
+    color: ${({ theme }) => theme.colors.text};
   }
 
   button {
@@ -68,7 +67,7 @@ const MenuFooter = styled.footer`
   width: 100%;
   padding-top: 16px;
   margin-top: auto;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid ${({ theme }) => theme.colors.secondary};
 
   span {
     font-size: 16px;
@@ -81,6 +80,7 @@ const MenuFooter = styled.footer`
       text-decoration: none;
       color: ${({ theme }) => theme.colors.primary};
       font-weight: bold;
+      margin-left: 4px;
     }
   }
 `
@@ -138,7 +138,7 @@ const MenuItem = styled.li`
 
     &.border-top {
       margin-top: 32px;
-      border-top: 1px solid #ddd;
+      border-top: 1px solid ${({ theme }) => theme.colors.secondary};
     }
   }
 `
@@ -206,11 +206,11 @@ const SideMenu = ({
   }
 
   useEffect(() => {
-    const isDarkOn = localStorage.getItem('darkMode')
-    const isHardOn = localStorage.getItem('hardMode')
+    const isDarkModeOn = localStorage.getItem('darkMode')
+    const isHardModeOn = localStorage.getItem('hardMode')
 
-    setDarkMode(isDarkOn === 'true')
-    setDarkMode(isHardOn === 'true')
+    setDarkMode(isDarkModeOn === 'true')
+    setDarkMode(isHardModeOn === 'true')
   }, [])
 
   return (
@@ -221,7 +221,7 @@ const SideMenu = ({
             <button type="button" onClick={() => setSubSection(false)}>
               <ArrowBackIos />
             </button>
-            <h2>Idiomas</h2>
+            <h2>{texts.menu[0]}</h2>
             <div />
           </MenuHeader>
           <SubSection>
@@ -235,7 +235,7 @@ const SideMenu = ({
                 />
               </div>
               <button type="button" onClick={() =>  Router.push('/en')}>
-                <span>{texts.language[1]}</span>
+                <span>{texts.menu[3]}</span>
               </button>
             </li>
             <li>
@@ -248,7 +248,7 @@ const SideMenu = ({
                 />
               </div>
               <button type="button" onClick={() => Router.push('/pt')}>
-                <span>{texts.language[2]}</span>
+                <span>{texts.menu[4]}</span>
               </button>
             </li>
           </SubSection>
@@ -264,7 +264,7 @@ const SideMenu = ({
           </MenuHeader>
           <MenuBody>
             <MenuItem >
-              <span>Idiomas</span>
+              <span>{texts.menu[0]}</span>
               <button
                 type="button" 
                 onClick={() => setSubSection(true)}
@@ -273,23 +273,25 @@ const SideMenu = ({
               </button>
             </MenuItem>
             <MenuItem className="border-top">
-              <span className='text'>Dark Mode</span>
+              <span className='text'>{texts.menu[1]}</span>
               <div>
                 <Brightness2 />
                 <Switch 
                   value={darkMode} 
-                  onChange={(e) => handleChangeDarkMode(!darkMode)} 
+                  defaultChecked={darkMode}
+                  onChange={() => handleChangeDarkMode(!darkMode)} 
                 />
                 <Brightness7 />
               </div>
             </MenuItem>
             <MenuItem>
-              <span className='text'>Hard Mode</span>
+              <span className='text'>{texts.menu[2]}</span>
               <div>
                 <Extension />
                 <Switch             
                   value={hardMode} 
-                  onChange={(e) => handleChangeHardMode(!hardMode)}  
+                  defaultChecked={hardMode}
+                  onChange={() => handleChangeHardMode(!hardMode)}  
                 />
                 <Extension />
               </div>
@@ -298,7 +300,7 @@ const SideMenu = ({
         </>
       )}
       <MenuFooter>
-        <span>Created by <a href="https://github.com/igorjung" target="blank">@igorjung</a></span>
+        <span>{texts.menu[5]}<a href="https://github.com/igorjung" target="blank">@igorjung</a></span>
       </MenuFooter>
     </SideMenuContainer>
   )

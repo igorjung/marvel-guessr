@@ -22,7 +22,7 @@ const ModalHeader = styled.header`
     cursor: pointer;
 
     svg {
-      color: #000;
+      color: ${({ theme }) => theme.colors.text};
       font-size: 22px;
     }
   }

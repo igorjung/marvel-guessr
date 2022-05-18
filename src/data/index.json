@@ -17,10 +17,13 @@
           "É bem simples para jogar. Tente adivinhar o personagem usando apenas a imagem embaçada. Se você errar, a imagem fica mais nítida.",
           "Todos os direitos reservados aos donos - sem inteção de infringir direito de autor."
         ],
-        "language": [
+        "menu": [
           "Idiomas",
+          "Modo Noturno",
+          "Modo Difícil",
           "Inglês",
-          "Português"
+          "Português",
+          "Criado por"
         ],
         "footer": [
           "Esse site usa",
@@ -486,10 +489,13 @@
           "It is quite simple to play it. Guess the character name using just the blurred picture. If you guess it wrong, the picture becomes clearer.",
           "All rights go to the rightful owners - no copyright infringement intended."
         ],
-        "language": [
+        "menu": [
           "languages",
+          "Dark Mode",
+          "Hard Mode",
           "English",
-          "Portugues"
+          "Portugues",
+          "Created by"
         ],
         "footer": [
           "This site uses",

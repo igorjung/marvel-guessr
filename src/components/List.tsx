@@ -30,7 +30,7 @@ const ListContainer = styled.ul`
     font-weight: 400;
 
     svg {
-      color: #450003;
+      color: ${({ theme }) => theme.colors.error};
       font-size: 18px;
     }
 
@@ -54,14 +54,14 @@ const ShareSection = styled.div`
     font-size: 22px;
     line-height: 26px;
     font-weight: bold;
-    color: #fff;
+    color: ${({theme}) => theme.colors.text};
 
     border-radius: 4px;
-    background-color: ${({theme}) => theme.colors.primary};
+    background-color: ${({theme}) => theme.colors.button};
     cursor: pointer;
 
     &:disabled {
-      background-color: ${({theme}) => theme.colors.secondary};
+      background-color: ${({theme}) => theme.colors.disabled};
       cursor: not-allowed;
     }
   }
