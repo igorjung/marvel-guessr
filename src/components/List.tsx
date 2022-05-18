@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Alert } from '@material-ui/lab';
-import { Close } from '@material-ui/icons'
+import { Close, Check } from '@material-ui/icons'
 import styled from 'styled-components'
 import IOption from '../interfaces/option'
 import { getNameById } from '../utils'
@@ -12,7 +12,7 @@ const ListContainer = styled.ul`
   justify-content: flex-start;
   width: 100%;
 
-  margin-top: 16px;
+  margin-top: 32px;
   padding-bottom: 32px;
 
   li {
@@ -32,6 +32,10 @@ const ListContainer = styled.ul`
     svg {
       color: ${({ theme }) => theme.colors.error};
       font-size: 18px;
+
+      &.correct {
+        color: ${({ theme }) => theme.colors.correct};
+      }
     }
 
     & + li {
@@ -76,25 +80,29 @@ const SharedAlert = styled(Alert)`
 
 interface IList {
   guesses: IOption[]
+  chances: number
   list: IOption[]
   isCorrect: boolean
   texts: string[]
   days: number
+  data:  IOption
 }
 const List = ({ 
   guesses,
+  chances,
   list,
   isCorrect,
   texts,
-  days
+  days,
+  data
 } : IList) => {
   const [showAlert, setShowAlert] = useState(false);
 
   const handleShare = async (evt: { preventDefault: () => void; }) => {
     if (navigator.share) { 
       const shareData = {
-        title: 'AmINerdola',
-        text: `Am I Nerdola? ${isCorrect ? 'Yes' : 'No'} #${days}`,
+        title: 'MarvelGuessr',
+        text: `${guesses.length}/${chances} #${days}\n\n${window.location.href}`,
         url: `${window.location.href}`,
       }
 
@@ -102,7 +110,7 @@ const List = ({
     } else {
       evt.preventDefault(); 
       navigator.clipboard.writeText(
-      `Am I Nerdola? ${isCorrect ? 'Yes' : 'No'} #${days}\n\n${window.location.href}`
+      `${guesses.length}/${chances} #${days}\n\n${window.location.href}`
       )
     }
     setShowAlert(true)
@@ -113,12 +121,15 @@ const List = ({
     <ListContainer>
       {guesses && guesses.map((item, index) => (
         <li key={`${item.id}-${index}`}>
-          <Close />
+          {data.id === item.id ?
+            <Check className='correct' /> :
+            <Close /> 
+          }
           {getNameById(list, item.id)}
         </li>
       ))}      
     </ListContainer>
-    {(isCorrect || guesses.length >= 5) && (
+    {(isCorrect || guesses.length >= chances) && (
       <ShareSection >
         <button type="button" onClick={handleShare}>
           {texts[0]}

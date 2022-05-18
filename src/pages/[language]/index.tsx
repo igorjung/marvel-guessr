@@ -1,6 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useState, useEffect } from 'react'
+import { 
+  useState, 
+  useEffect, 
+  useMemo 
+} from 'react'
 import styled from 'styled-components'
 
 import json from '../../data/index.json'
@@ -109,14 +113,19 @@ const Home: NextPage = ({
     if(guess.id === data.id) {
       setIsCorrect(true)
       localStorage.setItem('isCorrect', 'true')
-    } else {
-      const guessesList = [...guesses, guess]
-      setGuesses(guessesList)
-      localStorage.setItem('list', JSON.stringify(guessesList))
     }
+
+    const guessesList = [...guesses, guess]
+    setGuesses(guessesList)
+    localStorage.setItem('list', JSON.stringify(guessesList))
 
     setGuess(null)
   }
+
+  const chances = useMemo(() => {
+    const isHardModeOn = localStorage.getItem('hardMode') === 'true'
+    return isHardModeOn ? 3: 6
+  }, [])
 
   useEffect(() => {
     setLoading(true)
@@ -146,10 +155,11 @@ const Home: NextPage = ({
                 <Thumb
                   list={characters}
                   guesses={guesses}
+                  chances={chances}
                   isCorrect={isCorrect}
                   data={data}
                 />
-                {(isCorrect || guesses.length >= 5) ? (
+                {(isCorrect || guesses.length >= chances) ? (
                   <Text isCorrect={isCorrect}>
                     {isCorrect ?
                       texts.correct_answer :
@@ -161,6 +171,7 @@ const Home: NextPage = ({
                     list={characters}
                     guesses={guesses}
                     guess={guess}
+                    chances={chances}
                     text={texts.submit_button}
                     onInsert={(value) => setGuess(value)}
                     onConfirm={handleGuessing}
@@ -168,10 +179,12 @@ const Home: NextPage = ({
                 )}
                 <List 
                   guesses={guesses} 
+                  chances={chances}
                   list={characters}
                   isCorrect={isCorrect}
                   texts={texts.share}
                   days={days}
+                  data={data}
                 />
               </>
             ): (

@@ -59,6 +59,7 @@ interface IForm {
   list: IOption[]
   guesses: IOption[]
   guess: IOption
+  chances: number
   text: string
   onInsert: (value: IOption) => void
   onConfirm: () => void
@@ -67,6 +68,7 @@ const Form = ({
   list, 
   guesses, 
   guess,
+  chances,
   text,
   onInsert,
   onConfirm
@@ -110,7 +112,7 @@ const Form = ({
         </SubmitButton>
       </FormContainer>
       <GuessNumber>
-        {guesses.length}/5
+        {guesses.length}/{chances}
       </GuessNumber>
     </>
   )

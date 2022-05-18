@@ -3,7 +3,11 @@ import styled from 'styled-components'
 import IOption from '../interfaces/option'
 import { getNameById } from '../utils'
 
-const ImageContainer = styled.div<{guesses: number, isCorrect: boolean}>`
+const ImageContainer = styled.div<{
+  guesses: number,
+  chances:number,
+  isCorrect: boolean
+}>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,7 +22,11 @@ const ImageContainer = styled.div<{guesses: number, isCorrect: boolean}>`
     position: relative;
     width: 360px;
     height: 360px;
-    filter: ${({ isCorrect, guesses }) => isCorrect ? `blur(0px)` : `blur(${(5 - guesses) * 5}px)`};
+    filter: ${({ 
+      isCorrect, 
+      chances, 
+      guesses 
+    }) => isCorrect ? `blur(0px)` : `blur(${(chances - guesses) * 5}px)`};
   }
 
   .thumb-container:after {
@@ -51,6 +59,7 @@ const ImageContainer = styled.div<{guesses: number, isCorrect: boolean}>`
 interface IThumb {
   list: IOption[]
   guesses: IOption[]
+  chances: number
   isCorrect: boolean
   data: {
     id: number
@@ -64,6 +73,7 @@ interface IThumb {
 const Thumb = ({
   list, 
   guesses, 
+  chances,
   isCorrect,
   data,
 }: IThumb) => {
@@ -72,12 +82,16 @@ const Thumb = ({
   return (
     <>
       <span className="answer">
-        {(isCorrect || guesses.length >= 5) ?
+        {(isCorrect || guesses.length >= chances) ?
         getNameById(list, data.id) :
         '???'
         }
       </span>
-      <ImageContainer guesses={guesses.length} isCorrect={isCorrect}>
+      <ImageContainer 
+        guesses={guesses.length} 
+        chances={chances}
+        isCorrect={isCorrect}
+      >
         <div className='thumb-container'>
           <Image 
             alt='image'
