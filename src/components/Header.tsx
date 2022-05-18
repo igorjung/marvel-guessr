@@ -17,7 +17,7 @@ const HeaderContainer = styled.header`
   margin-bottom: 48px;
   padding-bottom: 16px;
 
-  border-bottom: 2px solid ${({ theme }) => theme.colors.secondary};
+  border-bottom: 2px solid ${({ theme }) => theme.border.primary};
 
   div {
     position: relative;
@@ -42,15 +42,18 @@ const HeaderContainer = styled.header`
 
     svg {
       font-size: 24px;
-      color: ${({ theme }) => theme.colors.text};
     }
   }
 `
 
 interface IHeader {
-  texts: ITexts,
+  texts: ITexts
+  onChangeState: () => void
 }
-const Header = ({ texts } : IHeader) => {
+const Header = ({ 
+  texts,
+  onChangeState
+ } : IHeader) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -92,6 +95,7 @@ const Header = ({ texts } : IHeader) => {
         open={menuOpen}
         texts={texts}
         onClose={() => setMenuOpen(false)}
+        onChangeState={onChangeState}
       />
     </>
   )

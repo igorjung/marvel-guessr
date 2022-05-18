@@ -15,7 +15,7 @@ const Wrapper = styled.main`
   height: 100%;
   min-height: 100vh;
 
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: ${({ theme }) => theme.background.primary};
 `
 
 const Home: NextPage = () => {

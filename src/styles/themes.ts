@@ -1,26 +1,43 @@
 export const light = {
-  colors: {
-    background: '#D9D9D9',
-    primary: '#ED1D24',
-    secondary: '#F7F7FA',
-    button: '#3747A6',
-    text: '#000',
-    error: '#F20544',
-    correct: '#36D96F',
-    disabled: '#272425',
+  text: {
+    primary: '#000',
+    secondary: '#ED1D24',
+    alert: '#F20544',
+    disabled: '#272425'
+  },
+  background: {
+    primary: '#D9D9D9',
+    secondary: '#F7F7FA'
+  },
+  button: {
+    primary: '#F20544',
+    secondary: '#36D96F',
+    disabled: '#272425'
+  },
+  border: {
+    primary: '#F20544',
+    secondary: '#ED1D24',
   }
 }
 
   export const dark = {
-    colors: {
-      background: '#3F434D',
-      primary: '#ED1D24',
-      secondary: '#313640',
-      button: '#3747A6',
-      text: '#ffff',
-      error: '#F20544',
-      correct: '#36D96F',
-      disabled: '#272425',
+    texts: {
+      primary: '#000',
+      secondary: '#ED1D24',
+      alert: '#F20544',
+      disabled: '#272425'
+    },
+    background: {
+      primary: '#D9D9D9',
+      secondary: '#F7F7FA'
+    },
+    button: {
+      primary: '#F20544',
+      secondary: '#36D96F',
+      disabled: '#272425'
+    },
+    border: {
+      primary: '#F20544',
     }
   }
   

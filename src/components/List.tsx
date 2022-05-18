@@ -26,15 +26,14 @@ const ListContainer = styled.ul`
     text-align: left;
 
     font-size: 18px;
-    color: ${({ theme }) => theme.colors.text};
     font-weight: 400;
 
     svg {
-      color: ${({ theme }) => theme.colors.error};
+      color: ${({ theme }) => theme.text.secondary};
       font-size: 18px;
 
       &.correct {
-        color: ${({ theme }) => theme.colors.correct};
+        color: ${({ theme }) => theme.text.alert};
       }
     }
 
@@ -58,16 +57,11 @@ const ShareSection = styled.div`
     font-size: 22px;
     line-height: 26px;
     font-weight: bold;
-    color: ${({theme}) => theme.colors.text};
+    color: ${({theme}) => theme.text.primary};
 
     border-radius: 4px;
-    background-color: ${({theme}) => theme.colors.button};
+    background-color: ${({theme}) => theme.button.secondary};
     cursor: pointer;
-
-    &:disabled {
-      background-color: ${({theme}) => theme.colors.disabled};
-      cursor: not-allowed;
-    }
   }
 
 `;

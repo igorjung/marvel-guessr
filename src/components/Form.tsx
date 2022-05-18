@@ -22,8 +22,7 @@ const FormContainer = styled.div`
 const Input = styled(TextField)`
   width: 100%;
   height: 35px;
-  color: ${({ theme }) => theme.colors.text}
-`;
+`
 const SubmitButton = styled.button`
   height: 35px;
   width: 120px;
@@ -32,29 +31,22 @@ const SubmitButton = styled.button`
   font-size: 16px;
   line-height: 24px;
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.text};
 
   border-radius: 4px;
-  background-color: ${({theme}) => theme.colors.button};
   cursor: pointer;
-
-  &:disabled {
-    background-color: ${({theme}) => theme.colors.disabled};
-    cursor: not-allowed;
-  }
 
   @media only screen and (max-width: 820px) {
     margin: 16px 0 0 0;
   }
-`;
+`
 const GuessNumber = styled.span`
   font-size: 24px;
-  color: ${({ theme }) => theme.colors.text};
   font-weight: 600;
   width: 100%;
   text-align: center;
   margin-top: 16px;
 `
+
 interface IForm {
   list: IOption[]
   guesses: IOption[]

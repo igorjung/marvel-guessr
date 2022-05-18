@@ -1,10 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { 
-  useState, 
-  useEffect, 
-  useMemo 
-} from 'react'
+import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import json from '../../data/index.json'
@@ -26,9 +22,27 @@ const Wrapper = styled.main`
 
   width: 100%;
   height: 100%;
+  background-color: ${({ theme }) => theme.background.primary};
 
-  color: ${({ theme }) => theme.colors.text};
-  background-color: ${({ theme }) => theme.colors.background};
+  p, span, svg, h1, h2 {
+    color: ${({ theme }) => theme.text.primary};
+  }
+
+  a {
+    color: ${({ theme }) => theme.text.secondary};
+  }
+
+  button {
+    color: ${({ theme }) => theme.text.primary};
+    background-color: ${({theme}) => theme.button.primary};
+
+    &:disabled {
+      color: ${({ theme }) => theme.text.disabled};
+      background-color: ${({theme}) => theme.button.disabled};
+      cursor: not-allowed;
+    }
+
+  }
 `
 const Container = styled.div`
   position: relative;
@@ -57,7 +71,7 @@ const Content = styled.div`
   justify-content: center;
 
   span.answer {
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.text.alert};
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 12px;
@@ -67,8 +81,8 @@ const Text = styled.p<{isCorrect: boolean}>`
   font-size: 24px;
   color: ${({theme, isCorrect}) => 
     isCorrect ? 
-    theme.colors.correct : 
-    theme.colors.error
+    theme.text.primary : 
+    ttheme.text.alert
   };
 
   font-weight: 600;
@@ -99,6 +113,7 @@ const Home: NextPage = ({
   const [guesses, setGuesses] = useState<IOption[]>([]);
   const [isCorrect, setIsCorrect] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [chances, setChances] = useState(6);
 
   const resetGame = () => {
     const dayNumber = parseInt(localStorage.getItem('days') || '0') 
@@ -121,15 +136,15 @@ const Home: NextPage = ({
 
     setGuess(null)
   }
-
-  const chances = useMemo(() => {
-    const isHardModeOn = localStorage.getItem('hardMode') === 'true'
-    return isHardModeOn ? 3: 6
-  }, [])
+  const handleHardMode = () => {
+    const isHardModeOn = localStorage.getItem('hardMode')
+    setChances(isHardModeOn === 'true' ? 3 : 6)
+  }
 
   useEffect(() => {
     setLoading(true)
     resetGame()
+    handleHardMode()
 
     const guessesList = localStorage.getItem('list')
     const status = localStorage.getItem('isCorrect')
@@ -148,7 +163,10 @@ const Home: NextPage = ({
       </Head>
       <Wrapper>
         <Container>
-          <Header texts={texts}/>
+          <Header 
+            texts={texts} 
+            onChangeState={handleHardMode}
+          />
           <Content>
             {!loading ? (
               <>

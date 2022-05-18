@@ -15,7 +15,7 @@ const ImageContainer = styled.div<{
 
   height: 360px;
   width: 800px;
-  background-color: ${({ theme }) => theme.colors.secondary};
+  background-color: ${({ theme }) => theme.background.secondary};
   border-radius: 8px;
 
   div {
@@ -26,7 +26,13 @@ const ImageContainer = styled.div<{
       isCorrect, 
       chances, 
       guesses 
-    }) => isCorrect ? `blur(0px)` : `blur(${(chances - guesses) * 5}px)`};
+    }) => isCorrect ?
+    `blur(0px)` :
+    `blur(${
+      (chances - guesses) *
+      (chances === 6 ? 5 : 10)
+    }px)`
+    };
   }
 
   .thumb-container:after {

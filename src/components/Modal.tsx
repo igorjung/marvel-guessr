@@ -13,7 +13,6 @@ const ModalHeader = styled.header`
   padding: 32px 32px 0 32px;
 
   h2 {
-    color: ${({ theme }) => theme.colors.text};
     font-size: 24px;
     font-weight: bold;
   }
@@ -22,7 +21,6 @@ const ModalHeader = styled.header`
     cursor: pointer;
 
     svg {
-      color: ${({ theme }) => theme.colors.text};
       font-size: 22px;
     }
   }
@@ -37,13 +35,11 @@ const ModalSection = styled.section`
   p {
     font-size: 16px;
     line-height: 22px;
-    color: ${({ theme }) => theme.colors.text};
     font-weight: 600;
     margin-bottom:  16px;
 
     a {
       text-decoration: none;
-      color: ${({ theme }) => theme.colors.primary};
       font-weight: bold;
     }
   }

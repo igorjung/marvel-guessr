@@ -3,12 +3,9 @@ import Router from 'next/router'
 import { useState, useEffect } from 'react'
 import { Switch } from '@material-ui/core';
 import { 
-  Brightness2, 
-  Brightness7,
   Close, 
   ArrowBackIos,
   ArrowForwardIos,
-  Extension
 } from '@material-ui/icons'
 import styled from 'styled-components'
 import ITexts from '../interfaces/texts'
@@ -28,7 +25,7 @@ const SideMenuContainer = styled.div<{open: boolean}>`
   padding: 32px 24px 8px 24px;
   border-radius: 0 8px 8px 0;
 
-  background-color: ${({ theme }) => theme.colors.secondary};
+  background-color: ${({ theme }) => theme.background.secondary};
   z-index: 1;
 `
 const MenuHeader = styled.header`
@@ -40,18 +37,16 @@ const MenuHeader = styled.header`
   width: 100%;
   padding-bottom: 16px;
   margin-bottom: 32px;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.secondary};
+  border-bottom: 1px solid ${({ theme }) => theme.border.secondary};
 
   h1 {
     font-family: 'Koulen', cursive;
     font-size: 40px;
     line-height: 44px;
-    color: ${({ theme }) => theme.colors.primary};
   }
 
   svg {
     font-size: 20px;
-    color: ${({ theme }) => theme.colors.text};
   }
 
   button {
@@ -67,18 +62,16 @@ const MenuFooter = styled.footer`
   width: 100%;
   padding-top: 16px;
   margin-top: auto;
-  border-top: 1px solid ${({ theme }) => theme.colors.secondary};
+  border-top: 1px solid ${({ theme }) => theme.border.secondary};
 
   span {
     font-size: 16px;
     line-height: 22px;
-    color: ${({ theme }) => theme.colors.text};
     font-weight: 600;
     margin-bottom:  16px;
 
     a {
       text-decoration: none;
-      color: ${({ theme }) => theme.colors.primary};
       font-weight: bold;
       margin-left: 4px;
     }
@@ -116,7 +109,6 @@ const MenuItem = styled.li`
     font-size: 20px;
     line-height: 22px;
     font-weight: bold;
-    color: ${({ theme }) => theme.colors.text};
   }
 
   button {
@@ -124,13 +116,7 @@ const MenuItem = styled.li`
   }
 
   svg {
-    font-size: 22px;
-    color: ${({ theme }) => theme.colors.text};
-
-    &.arrow-right {
-      font-size: 18px;
-      color: ${({ theme }) => theme.colors.text};
-    }
+    font-size: 18px;
   }
 
   & + li {
@@ -138,7 +124,7 @@ const MenuItem = styled.li`
 
     &.border-top {
       margin-top: 32px;
-      border-top: 1px solid ${({ theme }) => theme.colors.secondary};
+      border-top: 1px solid ${({ theme }) => theme.border.secondary};
     }
   }
 `
@@ -170,12 +156,11 @@ const SubSection = styled.ul`
     span {
       font-size: 20px;
       line-height: 24px;
-      color: ${({ theme }) => theme.colors.text};
       font-weight: 600;
       margin-left: 16px;
 
       &:hover {
-        color: ${({ theme }) => theme.colors.primary}; 
+        color: ${({ theme }) => theme.text.secondary}; 
       }
     }
   }
@@ -185,14 +170,17 @@ interface ISideMenu {
   open: boolean
   texts: ITexts
   onClose: () => void
+  onChangeState: () => void
 }
 const SideMenu = ({ 
   open,
   texts,
-  onClose 
+  onClose,
+  onChangeState
 } : ISideMenu) => {
   const [darkMode, setDarkMode] = useState(false)
   const [hardMode, setHardMode] = useState(false)
+  const [hardModeDisabled, setHardModeDisabled] = useState(false)
   const [subSection, setSubSection] = useState(false)
 
   const handleChangeDarkMode = (value: boolean) => {
@@ -200,9 +188,24 @@ const SideMenu = ({
     localStorage.setItem('darkMode', `${value}`)
   }
 
+  const handleDisableDarkMode = (isHardModeOn: boolean) => {
+    const status = localStorage.getItem('isCorrect') === 'true'
+    const guesses = localStorage.getItem('list') ? 
+      JSON.parse(localStorage.getItem('list')) :
+      []
+    const chances =  isHardModeOn ? 3 : 6
+    const isDisabled = status || guesses.length >= chances
+
+    setHardModeDisabled(isDisabled)
+    return isDisabled
+  }
+
   const handleChangeHardMode = (value: boolean) => {
-    setHardMode(value)
-    localStorage.setItem('hardMode', `${value}`)
+    if(!handleDisableDarkMode(value)) {
+      setHardMode(value)
+      localStorage.setItem('hardMode', `${value}`)
+      onChangeState()
+    }
   }
 
   useEffect(() => {
@@ -210,7 +213,9 @@ const SideMenu = ({
     const isHardModeOn = localStorage.getItem('hardMode')
 
     setDarkMode(isDarkModeOn === 'true')
-    setDarkMode(isHardModeOn === 'true')
+    setHardMode(isHardModeOn === 'true')
+    handleDisableDarkMode(isHardModeOn === 'true')
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -269,31 +274,28 @@ const SideMenu = ({
                 type="button" 
                 onClick={() => setSubSection(true)}
               >
-                <ArrowForwardIos className="arrow-right"/>
+                <ArrowForwardIos/>
               </button>
             </MenuItem>
             <MenuItem className="border-top">
               <span className='text'>{texts.menu[1]}</span>
               <div>
-                <Brightness2 />
                 <Switch 
                   value={darkMode} 
                   defaultChecked={darkMode}
                   onChange={() => handleChangeDarkMode(!darkMode)} 
                 />
-                <Brightness7 />
               </div>
             </MenuItem>
             <MenuItem>
               <span className='text'>{texts.menu[2]}</span>
               <div>
-                <Extension />
                 <Switch             
                   value={hardMode} 
-                  defaultChecked={hardMode}
+                  checked={hardMode}
+                  disabled={hardModeDisabled}
                   onChange={() => handleChangeHardMode(!hardMode)}  
                 />
-                <Extension />
               </div>
             </MenuItem>
           </MenuBody>
