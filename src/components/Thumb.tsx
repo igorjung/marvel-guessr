@@ -3,6 +3,14 @@ import styled from 'styled-components'
 import IOption from '../interfaces/option'
 import { getNameById } from '../utils'
 
+const AnswerText = styled.span`
+  color: ${({ theme }) => theme.text.primary};
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+`
+
 const ImageContainer = styled.div<{
   guesses: number,
   chances:number,
@@ -13,10 +21,13 @@ const ImageContainer = styled.div<{
   align-items: center;
   justify-content: center;
 
-  height: 360px;
-  width: 800px;
-  background-color: ${({ theme }) => theme.background.secondary};
+  width: 100%;
+  background-color: #333;
   border-radius: 8px;
+
+  img {
+    border-radius: 8px;
+  }
 
   div {
     position: relative;
@@ -46,18 +57,13 @@ const ImageContainer = styled.div<{
   }
 
   @media only screen and (max-width: 820px) {
-    width: 100%;
-    background-color: none;
-
-    img {
-      border-radius: 8px;
-    }
+    background: none;
   }
 
   @media only screen and (max-width: 500px) {
     div {
       width: 250px;
-      height: 2500px;
+      height: 250px;
     }
   }
 `
@@ -87,12 +93,12 @@ const Thumb = ({
 
   return (
     <>
-      <span className="answer">
+      <AnswerText>
         {(isCorrect || guesses.length >= chances) ?
         getNameById(list, data.id) :
         '???'
         }
-      </span>
+      </AnswerText>
       <ImageContainer 
         guesses={guesses.length} 
         chances={chances}

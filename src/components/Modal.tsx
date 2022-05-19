@@ -2,6 +2,10 @@ import { Dialog } from '@material-ui/core'
 import { Close } from '@material-ui/icons'
 import styled from 'styled-components'
 
+const ModalContainer = styled.div`
+  background-color: ${({ theme }) => theme.background.secondary};
+  padding: 0;
+`
 const ModalHeader = styled.header`
   display: flex;
   flex-direction: row;
@@ -39,6 +43,7 @@ const ModalSection = styled.section`
     margin-bottom:  16px;
 
     a {
+      color: ${({ theme }) => theme.text.secondary};
       text-decoration: none;
       font-weight: bold;
     }
@@ -54,6 +59,7 @@ interface IModal {
 const Modal = ({open, title, children, onClose}: IModal) => {
   return (
     <Dialog onClose={() => onClose(null)} open={open}>
+      <ModalContainer>
       <ModalHeader>
         <h2>{title}</h2>
         <button type="button" onClick={() => onClose(null)}>
@@ -63,6 +69,7 @@ const Modal = ({open, title, children, onClose}: IModal) => {
       <ModalSection>
         {children}
       </ModalSection>
+      </ModalContainer>
     </Dialog>
   )
 }

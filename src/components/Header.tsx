@@ -1,4 +1,3 @@
-import Router from 'next/router'
 import Image from 'next/image'
 import { useState } from 'react'
 import { Menu, Info } from '@material-ui/icons'
@@ -15,7 +14,7 @@ const HeaderContainer = styled.header`
 
   width: 100%;
   margin-bottom: 48px;
-  padding-bottom: 16px;
+  padding: 0 16px 16px 16px;
 
   border-bottom: 2px solid ${({ theme }) => theme.border.primary};
 
@@ -37,7 +36,7 @@ const HeaderContainer = styled.header`
     display: flex;
     align-items: center;
     justify-content: center;
-
+    background: none !important;
     cursor: pointer;
 
     svg {

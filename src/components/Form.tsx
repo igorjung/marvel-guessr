@@ -11,7 +11,7 @@ const FormContainer = styled.div`
 
   width: 100%;
   padding: 0 64px;
-  margin-top: 32px;
+  margin-top: 100px;
 
   @media only screen and (max-width: 820px) {
     display: block;
@@ -22,6 +22,10 @@ const FormContainer = styled.div`
 const Input = styled(TextField)`
   width: 100%;
   height: 35px;
+
+  button {
+    display: none;
+  }
 `
 const SubmitButton = styled.button`
   height: 35px;

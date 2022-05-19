@@ -9,21 +9,22 @@ const ListContainer = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   width: 100%;
+  padding: 32px 0 64px 120px;
 
-  margin-top: 32px;
-  padding-bottom: 32px;
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
 
   li {
-    width: 100%;
-
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-
-    text-align: left;
+    justify-content: flex-start;
 
     font-size: 18px;
     font-weight: 400;
@@ -31,9 +32,10 @@ const ListContainer = styled.ul`
     svg {
       color: ${({ theme }) => theme.text.secondary};
       font-size: 18px;
+      margin-right: 4px;
 
       &.correct {
-        color: ${({ theme }) => theme.text.alert};
+        color: ${({ theme }) => theme.text.tertiary};
       }
     }
 
@@ -57,19 +59,25 @@ const ShareSection = styled.div`
     font-size: 22px;
     line-height: 26px;
     font-weight: bold;
-    color: ${({theme}) => theme.text.primary};
 
     border-radius: 4px;
-    background-color: ${({theme}) => theme.button.secondary};
     cursor: pointer;
   }
 
 `;
 const SharedAlert = styled(Alert)`
-  position: absolute;
-  top: 80px;
+  position: fixed;
+  top: 60px;
   left: 10%;
   width: 80%;
+
+  svg {
+    color: #fff !important;
+  }
+
+  button {
+    background: none;
+  }
 `
 
 interface IList {
@@ -93,10 +101,19 @@ const List = ({
   const [showAlert, setShowAlert] = useState(false);
 
   const handleShare = async (evt: { preventDefault: () => void; }) => {
+    let guessesText = ''
+    for (let index = 1; index <= chances; index++) {
+      if(guesses[index - 1]) {
+        guessesText += guesses[index - 1].id !== data.id ? '🟥' :'🟩'
+      } else {
+        guessesText += '⬛'
+      }
+    }
+
     if (navigator.share) { 
       const shareData = {
         title: 'MarvelGuessr',
-        text: `${guesses.length}/${chances} #${days}\n\n${window.location.href}`,
+        text: `${window.location.href} #${days}\n\n${guessesText}`,
         url: `${window.location.href}`,
       }
 
@@ -104,7 +121,7 @@ const List = ({
     } else {
       evt.preventDefault(); 
       navigator.clipboard.writeText(
-      `${guesses.length}/${chances} #${days}\n\n${window.location.href}`
+      `${window.location.href} #${days}\n\n${guessesText}`
       )
     }
     setShowAlert(true)
@@ -113,15 +130,17 @@ const List = ({
   return (
     <>
     <ListContainer>
-      {guesses && guesses.map((item, index) => (
-        <li key={`${item.id}-${index}`}>
-          {data.id === item.id ?
-            <Check className='correct' /> :
-            <Close /> 
-          }
-          {getNameById(list, item.id)}
-        </li>
-      ))}      
+      <ul>
+        {guesses && guesses.map((item, index) => (
+          <li key={`${item.id}-${index}`}>
+            {data.id === item.id ?
+              <Check className='correct' /> :
+              <Close /> 
+            }
+            {getNameById(list, item.id)}
+          </li>
+        ))} 
+      </ul>  
     </ListContainer>
     {(isCorrect || guesses.length >= chances) && (
       <ShareSection >

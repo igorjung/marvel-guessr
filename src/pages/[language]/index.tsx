@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import json from '../../data/index.json'
 import Header from '../../components/Header'
 import Thumb from '../../components/Thumb'
+import Message from '../../components/Message'
 import Form from '../../components/Form'
 import List from '../../components/List'
 import Loading from '../../components/Loading'
@@ -33,7 +34,7 @@ const Wrapper = styled.main`
   }
 
   button {
-    color: ${({ theme }) => theme.text.primary};
+    color: ${({ theme }) => theme.text.button};
     background-color: ${({theme}) => theme.button.primary};
 
     &:disabled {
@@ -70,25 +71,8 @@ const Content = styled.div`
   align-items: center;
   justify-content: center;
 
-  span.answer {
-    color: ${({ theme }) => theme.text.alert};
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 12px;
-  }
-`
-const Text = styled.p<{isCorrect: boolean}>`
-  font-size: 24px;
-  color: ${({theme, isCorrect}) => 
-    isCorrect ? 
-    theme.text.primary : 
-    ttheme.text.alert
-  };
-
-  font-weight: 600;
   width: 100%;
-  text-align: center;
-  margin-top: 16px;
+  max-width: 800px;
 `
 interface IHome {
   data: {
@@ -178,12 +162,7 @@ const Home: NextPage = ({
                   data={data}
                 />
                 {(isCorrect || guesses.length >= chances) ? (
-                  <Text isCorrect={isCorrect}>
-                    {isCorrect ?
-                      texts.correct_answer :
-                      texts.wrong_answer
-                    }
-                  </Text>
+                  <Message isCorrect={isCorrect} texts={texts} />
                 ) : (
                   <Form 
                     list={characters}

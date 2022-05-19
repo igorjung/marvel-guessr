@@ -27,6 +27,17 @@ const SideMenuContainer = styled.div<{open: boolean}>`
 
   background-color: ${({ theme }) => theme.background.secondary};
   z-index: 1;
+
+
+  button {
+    cursor: pointer;
+    background: none !important;
+  }
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    border-radius: 0;
+  }
 `
 const MenuHeader = styled.header`
   display: flex;
@@ -43,14 +54,11 @@ const MenuHeader = styled.header`
     font-family: 'Koulen', cursive;
     font-size: 40px;
     line-height: 44px;
+    color: ${({ theme }) => theme.text.secondary} !important;
   }
 
   svg {
     font-size: 20px;
-  }
-
-  button {
-    cursor: pointer;
   }
 `
 const MenuFooter = styled.footer`
