@@ -11,7 +11,7 @@ const FormContainer = styled.div`
 
   width: 100%;
   padding: 0 64px;
-  margin-top: 100px;
+  margin-top: 30px;
 
   @media only screen and (max-width: 820px) {
     display: block;
@@ -25,6 +25,22 @@ const Input = styled(TextField)`
 
   button {
     display: none;
+  }
+
+  input {
+    color: ${({ theme }) => theme.text.primary};
+  }
+
+  ::-webkit-input-placeholder { /* Edge */
+    color: ${({ theme }) => theme.text.tertiary};
+  }
+
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: ${({ theme }) => theme.text.tertiary};
+  }
+
+  ::placeholder {
+    color: ${({ theme }) => theme.text.tertiary};
   }
 `
 const SubmitButton = styled.button`

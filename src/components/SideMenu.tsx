@@ -93,6 +93,16 @@ const MenuBody = styled.ul`
 
   width: 100%;
   overflow-y: auto; 
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.background.primary};
+  }
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.text.tertiary};
+  }
 `
 const MenuItem = styled.li`
   display: flex;
@@ -121,6 +131,10 @@ const MenuItem = styled.li`
 
   button {
     cursor: pointer;
+  }
+
+  .MuiSwitch-track {
+    background-color: ${({ theme }) => theme.text.primary} !important;
   }
 
   svg {
@@ -194,6 +208,7 @@ const SideMenu = ({
   const handleChangeDarkMode = (value: boolean) => {
     setDarkMode(value)
     localStorage.setItem('darkMode', `${value}`)
+    document.location.reload(true)
   }
 
   const handleDisableDarkMode = (isHardModeOn: boolean) => {
@@ -217,12 +232,14 @@ const SideMenu = ({
   }
 
   useEffect(() => {
-    const isDarkModeOn = localStorage.getItem('darkMode')
-    const isHardModeOn = localStorage.getItem('hardMode')
+    const isDarkModeOn = localStorage.getItem('darkMode') === 'true'
+    const isHardModeOn = localStorage.getItem('hardMode') === 'true'
 
-    setDarkMode(isDarkModeOn === 'true')
-    setHardMode(isHardModeOn === 'true')
-    handleDisableDarkMode(isHardModeOn === 'true')
+    console.log(isDarkModeOn)
+
+    setDarkMode(isDarkModeOn)
+    setHardMode(isHardModeOn)
+    handleDisableDarkMode(isHardModeOn)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -290,7 +307,7 @@ const SideMenu = ({
               <div>
                 <Switch 
                   value={darkMode} 
-                  defaultChecked={darkMode}
+                  checked={darkMode}
                   onChange={() => handleChangeDarkMode(!darkMode)} 
                 />
               </div>

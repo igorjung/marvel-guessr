@@ -20,24 +20,24 @@ export const light = {
   }
 }
 
-  export const dark = {
-    texts: {
-      primary: '#000',
-      secondary: '#ED1D24',
-      alert: '#F20544',
-      disabled: '#272425'
-    },
-    background: {
-      primary: '#D9D9D9',
-      secondary: '#F7F7FA'
-    },
-    button: {
-      primary: '#F20544',
-      secondary: '#36D96F',
-      disabled: '#272425'
-    },
-    border: {
-      primary: '#F20544',
-    }
+export const dark = {
+  text: {
+    primary: '#F2F2F2',
+    secondary: '#ED1D24',
+    tertiary: '#F2EDE9',
+    button: '#fff',
+    disabled: '#333'
+  },
+  background: {
+    primary: '#262626',
+    secondary: '#0D0D0D'
+  },
+  button: {
+    primary: '#ED1D24',
+    disabled: '#0D0D0D'
+  },
+  border: {
+    primary: '#333',
+    secondary: '#262626',
   }
-  
+}

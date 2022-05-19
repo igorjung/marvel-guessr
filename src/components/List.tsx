@@ -11,7 +11,7 @@ const ListContainer = styled.ul`
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 32px 0 64px 120px;
+  padding: 32px 0 64px 0;
 
   ul {
     display: flex;
@@ -28,6 +28,8 @@ const ListContainer = styled.ul`
 
     font-size: 18px;
     font-weight: 400;
+
+    color: ${({ theme }) => theme.text.primary};
 
     svg {
       color: ${({ theme }) => theme.text.secondary};

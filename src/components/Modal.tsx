@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 const ModalContainer = styled.div`
   background-color: ${({ theme }) => theme.background.secondary};
+  color: ${({ theme }) => theme.text.primary};
   padding: 0;
 `
 const ModalHeader = styled.header`
@@ -26,6 +27,7 @@ const ModalHeader = styled.header`
 
     svg {
       font-size: 22px;
+      color: ${({ theme }) => theme.text.primary};
     }
   }
 `
