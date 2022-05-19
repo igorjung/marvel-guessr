@@ -116,9 +116,7 @@ const Home: NextPage = ({
       setIsCorrect(true)
       localStorage.setItem('isCorrect', 'true')
 
-      const partyElement = document.getElementById('party_element')
       setShowConfetti(true)
-
       window.setTimeout(() => {
         setShowConfetti(false)
       }, 10000);
@@ -155,9 +153,7 @@ const Home: NextPage = ({
         <meta name="description" content={texts.head_title} />
       </Head>
       <Wrapper>
-        {showConfetti && (
-          <Confetti/>
-        )}
+        {showConfetti && <Confetti/>}
         <Container>
           <Header 
             texts={texts} 
