@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Alert } from '@material-ui/lab';
-import { Close } from '@material-ui/icons'
+import { Close, Check } from '@material-ui/icons'
 import styled from 'styled-components'
 import IOption from '../interfaces/option'
 import { getNameById } from '../utils'
@@ -9,29 +9,36 @@ const ListContainer = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   width: 100%;
+  padding: 32px 0 64px 0;
 
-  margin-top: 16px;
-  padding-bottom: 32px;
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
 
   li {
-    width: 100%;
-
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-
-    text-align: left;
+    justify-content: flex-start;
 
     font-size: 18px;
-    color: ${({ theme }) => theme.colors.text};
     font-weight: 400;
 
+    color: ${({ theme }) => theme.text.primary};
+
     svg {
-      color: #450003;
+      color: ${({ theme }) => theme.text.secondary};
       font-size: 18px;
+      margin-right: 4px;
+
+      &.correct {
+        color: ${({ theme }) => theme.text.tertiary};
+      }
     }
 
     & + li {
@@ -54,47 +61,61 @@ const ShareSection = styled.div`
     font-size: 22px;
     line-height: 26px;
     font-weight: bold;
-    color: #fff;
 
     border-radius: 4px;
-    background-color: ${({theme}) => theme.colors.primary};
     cursor: pointer;
-
-    &:disabled {
-      background-color: ${({theme}) => theme.colors.secondary};
-      cursor: not-allowed;
-    }
   }
 
 `;
 const SharedAlert = styled(Alert)`
-  position: absolute;
-  top: 80px;
+  position: fixed;
+  top: 60px;
   left: 10%;
   width: 80%;
+
+  svg {
+    color: #fff !important;
+  }
+
+  button {
+    background: none;
+  }
 `
 
 interface IList {
   guesses: IOption[]
+  chances: number
   list: IOption[]
   isCorrect: boolean
   texts: string[]
   days: number
+  data:  IOption
 }
 const List = ({ 
   guesses,
+  chances,
   list,
   isCorrect,
   texts,
-  days
+  days,
+  data
 } : IList) => {
   const [showAlert, setShowAlert] = useState(false);
 
   const handleShare = async (evt: { preventDefault: () => void; }) => {
+    let guessesText = ''
+    for (let index = 1; index <= chances; index++) {
+      if(guesses[index - 1]) {
+        guessesText += guesses[index - 1].id !== data.id ? '🟥' :'🟩'
+      } else {
+        guessesText += '⬛'
+      }
+    }
+
     if (navigator.share) { 
       const shareData = {
-        title: 'AmINerdola',
-        text: `Am I Nerdola? ${isCorrect ? 'Yes' : 'No'} #${days}`,
+        title: 'MarvelGuessr',
+        text: `${window.location.href} #${days}\n\n${guessesText}`,
         url: `${window.location.href}`,
       }
 
@@ -102,7 +123,7 @@ const List = ({
     } else {
       evt.preventDefault(); 
       navigator.clipboard.writeText(
-      `Am I Nerdola? ${isCorrect ? 'Yes' : 'No'} #${days}\n\n${window.location.href}`
+      `${window.location.href} #${days}\n\n${guessesText}`
       )
     }
     setShowAlert(true)
@@ -111,14 +132,19 @@ const List = ({
   return (
     <>
     <ListContainer>
-      {guesses && guesses.map((item, index) => (
-        <li key={`${item.id}-${index}`}>
-          <Close />
-          {getNameById(list, item.id)}
-        </li>
-      ))}      
+      <ul>
+        {guesses && guesses.map((item, index) => (
+          <li key={`${item.id}-${index}`}>
+            {data.id === item.id ?
+              <Check className='correct' /> :
+              <Close /> 
+            }
+            {getNameById(list, item.id)}
+          </li>
+        ))} 
+      </ul>  
     </ListContainer>
-    {(isCorrect || guesses.length >= 5) && (
+    {(isCorrect || guesses.length >= chances) && (
       <ShareSection >
         <button type="button" onClick={handleShare}>
           {texts[0]}

@@ -11,7 +11,7 @@ const FormContainer = styled.div`
 
   width: 100%;
   padding: 0 64px;
-  margin-top: 32px;
+  margin-top: 30px;
 
   @media only screen and (max-width: 820px) {
     display: block;
@@ -22,7 +22,27 @@ const FormContainer = styled.div`
 const Input = styled(TextField)`
   width: 100%;
   height: 35px;
-`;
+
+  button {
+    display: none;
+  }
+
+  input {
+    color: ${({ theme }) => theme.text.primary};
+  }
+
+  ::-webkit-input-placeholder { /* Edge */
+    color: ${({ theme }) => theme.text.tertiary};
+  }
+
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: ${({ theme }) => theme.text.tertiary};
+  }
+
+  ::placeholder {
+    color: ${({ theme }) => theme.text.tertiary};
+  }
+`
 const SubmitButton = styled.button`
   height: 35px;
   width: 120px;
@@ -31,24 +51,16 @@ const SubmitButton = styled.button`
   font-size: 16px;
   line-height: 24px;
   font-weight: bold;
-  color: #fff;
 
   border-radius: 4px;
-  background-color: ${({theme}) => theme.colors.primary};
   cursor: pointer;
-
-  &:disabled {
-    background-color: ${({theme}) => theme.colors.secondary};
-    cursor: not-allowed;
-  }
 
   @media only screen and (max-width: 820px) {
     margin: 16px 0 0 0;
   }
-`;
+`
 const GuessNumber = styled.span`
   font-size: 24px;
-  color: ${({ theme }) => theme.colors.text};
   font-weight: 600;
   width: 100%;
   text-align: center;
@@ -59,6 +71,7 @@ interface IForm {
   list: IOption[]
   guesses: IOption[]
   guess: IOption
+  chances: number
   text: string
   onInsert: (value: IOption) => void
   onConfirm: () => void
@@ -67,6 +80,7 @@ const Form = ({
   list, 
   guesses, 
   guess,
+  chances,
   text,
   onInsert,
   onConfirm
@@ -110,7 +124,7 @@ const Form = ({
         </SubmitButton>
       </FormContainer>
       <GuessNumber>
-        {guesses.length}/5
+        {guesses.length}/{chances}
       </GuessNumber>
     </>
   )

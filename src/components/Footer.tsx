@@ -11,12 +11,10 @@ const FooterContainer = styled.footer`
 
   p {
     font-size: 16px;
-    color: ${({ theme }) => theme.colors.text};
     font-weight: 600;
 
     a {
       text-decoration: none;
-      color: ${({ theme }) => theme.colors.primary};
       font-weight: bold;
     }
   }

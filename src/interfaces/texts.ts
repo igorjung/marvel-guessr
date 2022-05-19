@@ -6,6 +6,6 @@ export default interface ITexts {
   wrong_answer: string
   head_title: string
   info: string[]
-  language: string[]
+  menu: string[]
   footer: string[]
 }

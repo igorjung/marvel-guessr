@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import json from '../../data/index.json'
 import Header from '../../components/Header'
 import Thumb from '../../components/Thumb'
+import Message from '../../components/Message'
 import Form from '../../components/Form'
 import List from '../../components/List'
 import Loading from '../../components/Loading'
@@ -14,9 +15,37 @@ import IOption from '../../interfaces/option'
 import ITexts from '../../interfaces/texts'
 import { getCharacter } from '../../services/api'
 import { getDates } from '../../services/date'
-import { ContactsOutlined } from '@material-ui/icons'
 
-const Container = styled.main`
+const Wrapper = styled.main`
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+  background-color: ${({ theme }) => theme.background.primary};
+
+  p, span, svg, h1, h2 {
+    color: ${({ theme }) => theme.text.primary};
+  }
+
+  a {
+    color: ${({ theme }) => theme.text.secondary};
+  }
+
+  button {
+    color: ${({ theme }) => theme.text.button};
+    background-color: ${({theme}) => theme.button.primary};
+
+    &:disabled {
+      color: ${({ theme }) => theme.text.disabled};
+      background-color: ${({theme}) => theme.button.disabled};
+      cursor: not-allowed;
+    }
+
+  }
+`
+const Container = styled.div`
   position: relative;
 
   display: flex;
@@ -24,8 +53,8 @@ const Container = styled.main`
   align-items: center;
   justify-content: center;
 
-  width: 100vw;
-  max-width: 800px;
+  width: 100%;
+  max-width: 1120px;
   height: 100%;
   min-height: 100vh;
 
@@ -42,22 +71,9 @@ const Content = styled.div`
   align-items: center;
   justify-content: center;
 
-  span.answer {
-    color: ${({ theme }) => theme.colors.text};
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 12px;
-  }
-`
-const Text = styled.p<{isCorrect: boolean}>`
-  font-size: 24px;
-  color: ${({isCorrect}) => isCorrect ? '#081B2B' : '#450003'};
-  font-weight: 600;
   width: 100%;
-  text-align: center;
-  margin-top: 16px;
+  max-width: 800px;
 `
-
 interface IHome {
   data: {
     id: number
@@ -81,6 +97,7 @@ const Home: NextPage = ({
   const [guesses, setGuesses] = useState<IOption[]>([]);
   const [isCorrect, setIsCorrect] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [chances, setChances] = useState(6);
 
   const resetGame = () => {
     const dayNumber = parseInt(localStorage.getItem('days') || '0') 
@@ -95,18 +112,23 @@ const Home: NextPage = ({
     if(guess.id === data.id) {
       setIsCorrect(true)
       localStorage.setItem('isCorrect', 'true')
-    } else {
-      const guessesList = [...guesses, guess]
-      setGuesses(guessesList)
-      localStorage.setItem('list', JSON.stringify(guessesList))
     }
 
+    const guessesList = [...guesses, guess]
+    setGuesses(guessesList)
+    localStorage.setItem('list', JSON.stringify(guessesList))
+
     setGuess(null)
+  }
+  const handleHardMode = () => {
+    const isHardModeOn = localStorage.getItem('hardMode')
+    setChances(isHardModeOn === 'true' ? 3 : 6)
   }
 
   useEffect(() => {
     setLoading(true)
     resetGame()
+    handleHardMode()
 
     const guessesList = localStorage.getItem('list')
     const status = localStorage.getItem('isCorrect')
@@ -123,48 +145,52 @@ const Home: NextPage = ({
         <title>MarvelGuessr - {texts.head_title}</title>
         <meta name="description" content={texts.head_title} />
       </Head>
-      <Container>
-        <Header texts={texts}/>
-        <Content>
-          {!loading ? (
-            <>
-              <Thumb
-                list={characters}
-                guesses={guesses}
-                isCorrect={isCorrect}
-                data={data}
-              />
-              {(isCorrect || guesses.length >= 5) ? (
-                <Text isCorrect={isCorrect}>
-                  {isCorrect ?
-                    texts.correct_answer :
-                    texts.wrong_answer
-                  }
-                </Text>
-              ) : (
-                <Form 
+      <Wrapper>
+        <Container>
+          <Header 
+            texts={texts} 
+            onChangeState={handleHardMode}
+          />
+          <Content>
+            {!loading ? (
+              <>
+                <Thumb
                   list={characters}
                   guesses={guesses}
-                  guess={guess}
-                  text={texts.submit_button}
-                  onInsert={(value) => setGuess(value)}
-                  onConfirm={handleGuessing}
+                  chances={chances}
+                  isCorrect={isCorrect}
+                  data={data}
                 />
-              )}
-              <List 
-                guesses={guesses} 
-                list={characters}
-                isCorrect={isCorrect}
-                texts={texts.share}
-                days={days}
-              />
-            </>
-          ): (
-            <Loading />
-          )}
-        </Content>
-        <Footer texts={texts.footer} />
-      </Container>
+                {(isCorrect || guesses.length >= chances) ? (
+                  <Message isCorrect={isCorrect} texts={texts} />
+                ) : (
+                  <Form 
+                    list={characters}
+                    guesses={guesses}
+                    guess={guess}
+                    chances={chances}
+                    text={texts.submit_button}
+                    onInsert={(value) => setGuess(value)}
+                    onConfirm={handleGuessing}
+                  />
+                )}
+                <List 
+                  guesses={guesses} 
+                  chances={chances}
+                  list={characters}
+                  isCorrect={isCorrect}
+                  texts={texts.share}
+                  days={days}
+                  data={data}
+                />
+              </>
+            ): (
+              <Loading />
+            )}
+          </Content>
+          <Footer texts={texts.footer} />
+        </Container>
+      </Wrapper>
     </>
   )
 }

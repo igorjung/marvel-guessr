@@ -6,14 +6,17 @@ import styled from 'styled-components'
 
 import Loading from '../components/Loading'
 
-const Container = styled.main`
+const Wrapper = styled.main`
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 0 32px 32px 32px;
 
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  padding-top: 64px;
+
+  background-color: ${({ theme }) => theme.background.primary};
 `
 
 const Home: NextPage = () => {
@@ -36,9 +39,9 @@ const Home: NextPage = () => {
         <title>MarvelGuessr - The daily marvel guessing game</title>
         <meta name="description" content="The daily marvel guessing game" />
       </Head>
-      <Container>
+      <Wrapper>
         <Loading />
-      </Container>
+      </Wrapper>
     </>
   )
 }
