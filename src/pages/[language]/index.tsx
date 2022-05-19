@@ -163,7 +163,6 @@ const Home: NextPage = ({
             texts={texts} 
             onChangeState={handleHardMode}
           />
-          <div id="party_element" /> 
           <Content>
             {!loading ? (
               <>
