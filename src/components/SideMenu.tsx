@@ -234,9 +234,6 @@ const SideMenu = ({
   useEffect(() => {
     const isDarkModeOn = localStorage.getItem('darkMode') === 'true'
     const isHardModeOn = localStorage.getItem('hardMode') === 'true'
-
-    console.log(isDarkModeOn)
-
     setDarkMode(isDarkModeOn)
     setHardMode(isHardModeOn)
     handleDisableDarkMode(isHardModeOn)
