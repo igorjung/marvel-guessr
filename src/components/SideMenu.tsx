@@ -208,7 +208,7 @@ const SideMenu = ({
   const handleChangeDarkMode = (value: boolean) => {
     setDarkMode(value)
     localStorage.setItem('darkMode', `${value}`)
-    document.location.reload(true)
+    document.location.reload()
   }
 
   const handleDisableDarkMode = (isHardModeOn: boolean) => {
