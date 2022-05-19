@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
+import Confetti from 'react-confetti'
 import styled from 'styled-components'
 
 import json from '../../data/index.json'
@@ -97,7 +98,9 @@ const Home: NextPage = ({
   const [guesses, setGuesses] = useState<IOption[]>([]);
   const [isCorrect, setIsCorrect] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
   const [chances, setChances] = useState(6);
+
 
   const resetGame = () => {
     const dayNumber = parseInt(localStorage.getItem('days') || '0') 
@@ -112,12 +115,18 @@ const Home: NextPage = ({
     if(guess.id === data.id) {
       setIsCorrect(true)
       localStorage.setItem('isCorrect', 'true')
+
+      const partyElement = document.getElementById('party_element')
+      setShowConfetti(true)
+
+      window.setTimeout(() => {
+        setShowConfetti(false)
+      }, 10000);
     }
 
     const guessesList = [...guesses, guess]
     setGuesses(guessesList)
     localStorage.setItem('list', JSON.stringify(guessesList))
-
     setGuess(null)
   }
   const handleHardMode = () => {
@@ -146,11 +155,15 @@ const Home: NextPage = ({
         <meta name="description" content={texts.head_title} />
       </Head>
       <Wrapper>
+        {showConfetti && (
+          <Confetti/>
+        )}
         <Container>
           <Header 
             texts={texts} 
             onChangeState={handleHardMode}
           />
+          <div id="party_element" /> 
           <Content>
             {!loading ? (
               <>

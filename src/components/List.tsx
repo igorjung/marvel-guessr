@@ -78,7 +78,7 @@ const SharedAlert = styled(Alert)`
   }
 
   button {
-    background: none;
+    background: none !important;
   }
 `
 
@@ -115,7 +115,7 @@ const List = ({
     if (navigator.share) { 
       const shareData = {
         title: 'MarvelGuessr',
-        text: `${window.location.href} #${days}\n\n${guessesText}`,
+        text: `#MarvelGuessr #Day${days}\n\n${guessesText}\n\n`,
         url: `${window.location.href}`,
       }
 
@@ -123,7 +123,7 @@ const List = ({
     } else {
       evt.preventDefault(); 
       navigator.clipboard.writeText(
-      `${window.location.href} #${days}\n\n${guessesText}`
+      `#MarvelGuessr #Day${days}\n\n${guessesText}\n\n${window.location.href}`
       )
     }
     setShowAlert(true)
