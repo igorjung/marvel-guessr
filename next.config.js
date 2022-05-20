@@ -3,6 +3,7 @@ const nextConfig = {
   images: {
     domains: ['i.annihil.us', 'flagcdn.com'],
   },
+  basePath: '/marvelguessr'
 }
 
 module.exports = nextConfig
