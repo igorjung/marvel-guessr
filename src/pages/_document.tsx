@@ -7,6 +7,7 @@ import Document, {
   Main,
   NextScript
 } from 'next/document'
+import Script from 'next/script';
 import { ServerStyleSheet } from 'styled-components'
 
 export default class MyDocument extends Document {
@@ -49,6 +50,19 @@ export default class MyDocument extends Document {
           <link 
             rel="icon" 
             href="/icon.png" 
+          />
+          <Script id="script-1" async src="https://www.googletagmanager.com/gtag/js?id=G-DQBYHSD8HY"/>
+          <Script 
+            id="script-2" 
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+    
+                gtag('config', 'G-DQBYHSD8HY');
+              `,
+            }}
           />
         </Head>
 
