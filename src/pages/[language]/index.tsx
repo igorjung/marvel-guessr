@@ -209,7 +209,7 @@ export const getStaticProps = async (context: {params: {language: string}}) => {
   const language = context.params.language
 
   return {
-    revalidate: 1000,
+    revalidate: 300,
     props: {
       data,
       days,
