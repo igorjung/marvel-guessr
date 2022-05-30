@@ -25,10 +25,6 @@ const ImageContainer = styled.div<{
   background-color: #333;
   border-radius: 8px;
 
-  img {
-    border-radius: 8px;
-  }
-
   div {
     position: relative;
     width: 360px;
@@ -58,6 +54,10 @@ const ImageContainer = styled.div<{
 
   @media only screen and (max-width: 820px) {
     background: none;
+
+    img {
+      border-radius: 8px;
+    }
   }
 
   @media only screen and (max-width: 500px) {

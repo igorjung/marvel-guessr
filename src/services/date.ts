@@ -5,5 +5,7 @@ export const getDates = () => {
   const start = moment(new Date(`${process.env.NEXT_PUBLIC_DATE}`)).utc()
   const end = moment().utc().subtract(tz, 'minutes')
 
-  return end.diff(start, 'days')
+  const days = end.diff(start, 'days')
+
+  return days > 0 ? days - 1 : days
 }

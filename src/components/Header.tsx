@@ -18,15 +18,26 @@ const HeaderContainer = styled.header`
 
   border-bottom: 2px solid ${({ theme }) => theme.border.primary};
 
-  div {
-    position: relative;
-    height: 30px;
-    width: 223px;
+  h1 {
+    font-family: 'Koulen', cursive;
+    font-size: 38px;
+    line-height: 38px;
+    color: ${({ theme }) => theme.text.secondary} !important;
 
     @media only screen and (max-width: 820px) {
-      height: 28px;
-      width: 208px;
+      font-size: 28px;
+      line-height: 28px;
     }
+  }
+
+  div {
+    position: relative;
+    width: 100%;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   button {
@@ -66,12 +77,7 @@ const Header = ({
           <Menu />
         </button>
         <div>
-          <Image 
-            src={'/images/Logo.png'}
-            alt="MarvelGuessr"
-            layout="fill"
-            objectFit="cover"
-          />
+          <h1>MARVELGUE??R</h1>
         </div>
         <button 
           type="button" 
