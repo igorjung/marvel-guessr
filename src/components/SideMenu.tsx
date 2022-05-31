@@ -9,6 +9,7 @@ import {
 } from '@material-ui/icons'
 import styled from 'styled-components'
 import ITexts from '../interfaces/texts'
+import * as ga from '../services/ga'
 
 const SideMenuContainer = styled.div<{open: boolean}>`
   position: fixed;
@@ -208,10 +209,16 @@ const SideMenu = ({
   const handleChangeDarkMode = (value: boolean) => {
     setDarkMode(value)
     localStorage.setItem('darkMode', `${value}`)
+    ga.event(
+      'change_dark_mode', 
+      'change_state', 
+      'dark_mode', 
+      `${value}` 
+    )
     document.location.reload()
   }
 
-  const handleDisableDarkMode = (isHardModeOn: boolean) => {
+  const handleDisableHardMode = (isHardModeOn: boolean) => {
     const status = localStorage.getItem('isCorrect') === 'true'
     const guesses = localStorage.getItem('list') ? 
       JSON.parse(localStorage.getItem('list')) :
@@ -224,9 +231,15 @@ const SideMenu = ({
   }
 
   const handleChangeHardMode = (value: boolean) => {
-    if(!handleDisableDarkMode(value)) {
+    if(!handleDisableHardMode(value)) {
       setHardMode(value)
       localStorage.setItem('hardMode', `${value}`)
+      ga.event(
+        'change_hard_mode', 
+        'change_state', 
+        'hard_mode', 
+        `${value}` 
+      )
       onChangeState()
     }
   }
@@ -236,7 +249,7 @@ const SideMenu = ({
     const isHardModeOn = localStorage.getItem('hardMode') === 'true'
     setDarkMode(isDarkModeOn)
     setHardMode(isHardModeOn)
-    handleDisableDarkMode(isHardModeOn)
+    handleDisableHardMode(isHardModeOn)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

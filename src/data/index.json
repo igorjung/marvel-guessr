@@ -110,6 +110,10 @@
           "name": "Capitã Marvel (Monica Rambeau)"
         },
         {
+          "id": 1009683,
+          "name": "Uatu, O Vigia"
+        },
+        {
           "id": 1009318,
           "name": "Motoqueiro Fantasma (Johnny Blaze)"
         },
@@ -122,12 +126,20 @@
           "name": "Miss Marvel (Kamala Khan)"
         },
         {
+          "id": 1009280,
+          "name": "Dormammu"
+        },
+        {
           "id": 1011335,
           "name": "Maria Hill"
         },
         {
           "id": 1009472,
           "name": "Noturno"
+        },
+        {
+          "id": 1009440,
+          "name": "Mephisto"
         },
         {
           "id": 1009515,
@@ -154,8 +166,16 @@
           "name": "Gatuno"
         },
         {
+          "id": 1010352,
+          "name": "Madame Máscara"
+        },
+        {
           "id": 1009504,
           "name": "Professor X"
+        },
+        {
+          "id": 1010735,
+          "name": "Drax"
         },
         {
           "id": 1009737,
@@ -169,9 +189,21 @@
           "id": 1009492,
           "name": "Patriota"
         },
+        {
+          "id": 1010860,
+          "name": "Garota Esquilo"
+        },
         {       
           "id": 1009265,
           "name": "Fênix Negra"
+        },
+        {
+          "id": 1009554,
+          "name": "Dentes-de-Sabre"
+        },
+        {       
+          "id": 1009252,
+          "name": "Ossos Cruzados"
         },
         {
           "id": 1009522,
@@ -190,12 +222,28 @@
           "name": "Tocha Humana"
         },
         {
+          "id": 1010785,
+          "name": "Eco"
+        },
+        {
           "id": 1011138,
           "name": "Beyonder"
         },
         {
           "id": 1009276,
           "name": "Doctor Octopus"
+        },
+        {
+          "id": 1009180,
+          "name": "Bill Raio Beta"
+        },
+        {
+          "id": 1011181,
+          "name": "Thena"
+        },
+        {
+          "id": 1010733,
+          "name": "Senhor das Estrelas (Peter Quill)"
         },
         {
           "id": 1009415,
@@ -222,20 +270,44 @@
           "name": "Golias (Bill Foster)"
         },
         {
+          "id": 1009421,
+          "name": "Mandarim"
+        },
+        {
           "id": 1009508,
           "name": "Kitty Pryde"
+        },
+        {
+          "id": 1010744,
+          "name": "Rocket Raccoon"
+        },
+        {
+          "id": 1009227,
+          "name": "Carnage"
         },
         {
           "id": 1009562,
           "name": "Feiticeira Escarlate"
         },
         {
+          "id": 1010763,
+          "name": "Gamora"
+        },
+        {
           "id": 1009638,
           "name": "Mancha Solar"
         },
         {
+          "id": 1011060,
+          "name": "Ego"
+        },
+        {
           "id": 1009577,
           "name": "Shang-Chi"
+        },
+        {
+          "id": 1009558,
+          "name": "Homem-Areia"
         },
         {
           "id": 1009191,
@@ -258,12 +330,20 @@
           "name": "Mulher-Aranha (Jessica Drew)"
         },
         {
+          "id": 1009186,
+          "name": "Cavaleiro Negro (Sir Percy of Scandia)"
+        },
+        {
           "id": 1009714,
           "name": "Wiccano"
         },
         {
           "id": 1009662,
           "name": "Coisa"
+        },
+        {
+          "id": 1009454,
+          "name": "Morbius"
         },
         {
           "id": 1009262,
@@ -282,6 +362,26 @@
           "name": "Cable"
         },
         {
+          "id": 1009287,
+          "name": "Electro"
+        },
+        {
+          "id": 1009699,
+          "name": "Abutre (Adrian Toomes)"
+        },
+        {
+          "id": 1009682,
+          "name": "Agente Americano"
+        },
+        {
+          "id": 1009648,
+          "name": "Treinador"
+        },
+        {
+          "id": 1010726,
+          "name": "M.O.D.O.K."
+        },
+        {
           "id": 1017603,
           "name": "Gwen-Aranha (Gwen Stacy)"
         },
@@ -292,6 +392,10 @@
         {
           "id": 1009524,
           "name": "Mercúrio"
+        },
+        {
+          "id": 1012295,
+          "name": "Homem-Aranha (Noir)"
         },
         {
           "id": 1009310,
@@ -318,6 +422,10 @@
           "name": "Thor"
         },
         {
+          "id": 1009465,
+          "name": "Mística"
+        },
+        {
           "id": 1009184,
           "name": "Raio Negro"
         },
@@ -342,12 +450,20 @@
           "name": "Ciclope"
         },
         {
+          "id": 1009499,
+          "name": "Polaris"
+        },
+        {
           "id": 1011360,
           "name": "Hulk Vermelho"
         },
         {
           "id": 1009537,
           "name": "Rino"
+        },
+        {
+          "id": 1010671,
+          "name": "Encantor (Amora)"
         },
         {
           "id": 1009241,
@@ -382,12 +498,20 @@
           "name": "Sr. Fantástico"
         },
         {
+          "id": 1009384,
+          "name": "Kang"
+        },
+        {
           "id": 1009224,
           "name": "Capitão Marvel (Mar-Vell)"
         },
         {
           "id": 1009639,
           "name": "Super-Skrull"
+        },
+        {
+          "id": 1009480,
+          "name": "Odin"
         },
         {
           "id": 1009610,
@@ -418,12 +542,24 @@
           "name": "Hércules"
         },
         {
+          "id": 1011077,
+          "name": "Ikaris"
+        },
+        {
           "id": 1009355,
           "name": "Hulkling"
         },
         {
           "id": 1009189,
           "name": "Viúva Negra"
+        },
+        {
+          "id": 1009539,
+          "name": "Franklin Richards"
+        },
+        {
+          "id": 1011056,
+          "name": "Homem-Múltiplo"
         },
         {
           "id": 1009583,
@@ -444,6 +580,14 @@
         {
           "id": 1009159,
           "name": "Anjo"
+        },
+        {
+          "id": 1009391,
+          "name": "Kraven the Hunter"
+        },
+        {
+          "id": 1009477,
+          "name": "Nova"
         },
         {
           "id": 1009404,
@@ -582,6 +726,10 @@
           "name": "Captain Marvel (Monica Rambeau)"
         },
         {
+          "id": 1009683,
+          "name": "Uatu The Watcher"
+        },
+        {
           "id": 1009318,
           "name": "Ghost Rider (Johnny Blaze)"
         },
@@ -594,12 +742,20 @@
           "name": "Ms. Marvel (Kamala Khan)"
         },
         {
+          "id": 1009280,
+          "name": "Dormammu"
+        },
+        {
           "id": 1011335,
           "name": "Maria Hill"
         },
         {
           "id": 1009472,
           "name": "Nightcrawler"
+        },
+        {
+          "id": 1009440,
+          "name": "Mephisto"
         },
         {
           "id": 1009515,
@@ -626,8 +782,16 @@
           "name": "Prowler"
         },
         {
+          "id": 1010352,
+          "name": "Madame Masque"
+        },
+        {
           "id": 1009504,
           "name": "Professor X"
+        },
+        {
+          "id": 1010735,
+          "name": "Drax"
         },
         {
           "id": 1009737,
@@ -641,9 +805,21 @@
           "id": 1009492,
           "name": "Patriot"
         },
+        {
+          "id": 1010860,
+          "name": "Squirrel Girl"
+        },
         {       
           "id": 1009265,
           "name": "Dark Phoenix"
+        },
+        {
+          "id": 1009554,
+          "name": "Sabretooth"
+        },
+        {       
+          "id": 1009252,
+          "name": "Crossbones"
         },
         {
           "id": 1009522,
@@ -662,12 +838,28 @@
           "name": "Human Torch"
         },
         {
+          "id": 1010785,
+          "name": "Echo"
+        },
+        {
           "id": 1011138,
           "name": "Beyonder"
         },
         {
           "id": 1009276,
           "name": "Doctor Octopus"
+        },
+        {
+          "id": 1009180,
+          "name": "Beta-Ray Bill"
+        },
+        {
+          "id": 1011181,
+          "name": "Thena"
+        },
+        {
+          "id": 1010733,
+          "name": "Star-Lord (Peter Quill)"
         },
         {
           "id": 1009415,
@@ -694,20 +886,44 @@
           "name": "Goliath (Bill Foster)"
         },
         {
+          "id": 1009421,
+          "name": "Mandarin"
+        },
+        {
           "id": 1009508,
           "name": "Kitty Pryde"
+        },
+        {
+          "id": 1010744,
+          "name": "Rocket Raccoon"
+        },
+        {
+          "id": 1009227,
+          "name": "Carnificina"
         },
         {
           "id": 1009562,
           "name": "Scarlet Witch"
         },
         {
+          "id": 1010763,
+          "name": "Gamora"
+        },
+        {
           "id": 1009638,
           "name": "Sunspot"
         },
         {
+          "id": 1011060,
+          "name": "Ego"
+        },
+        {
           "id": 1009577,
           "name": "Shang-Chi"
+        },
+        {
+          "id": 1009558,
+          "name": "Sandman"
         },
         {
           "id": 1009191,
@@ -730,12 +946,20 @@
           "name": "Spider-Woman (Jessica Drew)"
         },
         {
+          "id": 1009186,
+          "name": "Black Knight (Sir Percy of Scandia)"
+        },
+        {
           "id": 1009714,
           "name": "Wiccan"
         },
         {
           "id": 1009662,
           "name": "Thing"
+        },
+        {
+          "id": 1009454,
+          "name": "Morbius"
         },
         {
           "id": 1009262,
@@ -754,6 +978,26 @@
           "name": "Cable"
         },
         {
+          "id": 1009287,
+          "name": "Electro"
+        },
+        {
+          "id": 1009699,
+          "name": "Vulture (Adrian Toomes)"
+        },
+        {
+          "id": 1009682,
+          "name": "U.S. Agent"
+        },
+        {
+          "id": 1009648,
+          "name": "Taskmaster"
+        },
+        {
+          "id": 1010726,
+          "name": "M.O.D.O.K."
+        },
+        {
           "id": 1017603,
           "name": "Spider-Gwen (Gwen Stacy)"
         },
@@ -764,6 +1008,10 @@
         {
           "id": 1009524,
           "name": "Quicksilver"
+        },
+        {
+          "id": 1012295,
+          "name": "Spider-Man (Noir)"
         },
         {
           "id": 1009310,
@@ -790,6 +1038,10 @@
           "name": "Thor"
         },
         {
+          "id": 1009465,
+          "name": "Mystique"
+        },
+        {
           "id": 1009184,
           "name": "Black Bolt"
         },
@@ -814,12 +1066,20 @@
           "name": "Cyclops"
         },
         {
+          "id": 1009499,
+          "name": "Polaris"
+        },
+        {
           "id": 1011360,
           "name": "Red Hulk"
         },
         {
           "id": 1009537,
           "name": "Rhino"
+        },
+        {
+          "id": 1010671,
+          "name": "Enchantress (Amora)"
         },
         {
           "id": 1009241,
@@ -854,12 +1114,20 @@
           "name": "Mr. Fantastic"
         },
         {
+          "id": 1009384,
+          "name": "Kang"
+        },
+        {
           "id": 1009224,
           "name": "Captain Marvel (Mar-Vell)"
         },
         {
           "id": 1009639,
           "name": "Super-Skrull"
+        },
+        {
+          "id": 1009480,
+          "name": "Odin"
         },
         {
           "id": 1009610,
@@ -890,12 +1158,24 @@
           "name": "Hercules"
         },
         {
+          "id": 1011077,
+          "name": "Ikaris"
+        },
+        {
           "id": 1009355,
           "name": "Hulkling"
         },
         {
           "id": 1009189,
           "name": "Black Widow"
+        },
+        {
+          "id": 1009539,
+          "name": "Franklin Richards"
+        },
+        {
+          "id": 1011056,
+          "name": "Multiple Man"
         },
         {
           "id": 1009583,
@@ -916,6 +1196,14 @@
         {
           "id": 1009159,
           "name": "Archangel"
+        },
+        {
+          "id": 1009391,
+          "name": "Kraven o Caçador"
+        },
+        {
+          "id": 1009477,
+          "name": "Nova"
         },
         {
           "id": 1009404,

@@ -87,6 +87,7 @@ interface IList {
   chances: number
   list: IOption[]
   isCorrect: boolean
+  winStreak: number
   texts: string[]
   days: number
   data:  IOption
@@ -96,6 +97,7 @@ const List = ({
   chances,
   list,
   isCorrect,
+  winStreak,
   texts,
   days,
   data
@@ -110,6 +112,10 @@ const List = ({
       } else {
         guessesText += '⬛'
       }
+    }
+
+    if(winStreak > 1) {
+      guessesText += ` 🔥${winStreak}`
     }
 
     if (navigator.share) { 

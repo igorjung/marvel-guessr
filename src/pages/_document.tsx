@@ -7,7 +7,6 @@ import Document, {
   Main,
   NextScript
 } from 'next/document'
-import Script from 'next/script';
 import { ServerStyleSheet } from 'styled-components'
 
 export default class MyDocument extends Document {
@@ -46,22 +45,28 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=optional"
           />
-          <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet"/>
+          <link 
+            rel="stylesheet" 
+            href="https://fonts.googleapis.com/css2?family=Koulen&display=swap"
+          />
           <link 
             rel="icon" 
             href="/icon.png" 
           />
-          <Script id="script-1" async src="https://www.googletagmanager.com/gtag/js?id=G-DQBYHSD8HY"/>
-          <Script 
-            id="script-2" 
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+          />
+          <script
             dangerouslySetInnerHTML={{
               __html: `
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-    
-                gtag('config', 'G-DQBYHSD8HY');
-              `,
+                gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+                  page_path: window.location.pathname,
+                });
+            `,
             }}
           />
         </Head>
