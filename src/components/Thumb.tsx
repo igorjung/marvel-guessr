@@ -3,14 +3,33 @@ import styled from 'styled-components'
 import IOption from '../interfaces/option'
 import { getNameById } from '../utils'
 
-const AnswerText = styled.span`
-  color: ${({ theme }) => theme.text.primary};
-  font-size: 24px;
-  font-weight: bold;
+const AnswerText = styled.div`
+  position: relative;
+  width: 100%;
+  text-align: center;
   margin-bottom: 12px;
-  text-transform: uppercase;
-`
 
+  span {
+    color: ${({ theme }) => theme.text.primary};
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+`
+const WinStreakText = styled.div`
+  position: absolute;
+  top: 0;
+  right: 4px;
+  font-size: 22px;
+
+  span {
+    color: ${({ theme }) => theme.text.primary};
+    font-size: 20px;
+    line-height: 22px;;
+    font-weight: bold;
+    margin-left: 4px;
+  }
+`
 const ImageContainer = styled.div<{
   guesses: number,
   chances:number,
@@ -73,6 +92,7 @@ interface IThumb {
   guesses: IOption[]
   chances: number
   isCorrect: boolean
+  winStreak: number
   data: {
     id: number
     name: string
@@ -87,6 +107,7 @@ const Thumb = ({
   guesses, 
   chances,
   isCorrect,
+  winStreak,
   data,
 }: IThumb) => {
   const thumbnail = `${data.thumbnail.path}.${data.thumbnail.extension}`
@@ -94,10 +115,21 @@ const Thumb = ({
   return (
     <>
       <AnswerText>
-        {(isCorrect || guesses.length >= chances) ?
-        getNameById(list, data.id) :
-        '???'
-        }
+        <span>
+          {(isCorrect || guesses.length >= chances) ?
+          getNameById(list, data.id) :
+          '???'
+          }
+        </span>
+
+        {winStreak > 1 && (
+          <WinStreakText>
+            🔥
+            <span>
+              {winStreak}
+            </span>
+          </WinStreakText>
+        )}
       </AnswerText>
       <ImageContainer 
         guesses={guesses.length} 

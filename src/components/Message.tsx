@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { PartyMode } from '@material-ui/icons'
 import ITexts from '../interfaces/texts'
 
 const MessageContainer = styled.span<{isCorrect: boolean}>`
