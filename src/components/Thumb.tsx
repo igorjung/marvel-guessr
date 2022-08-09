@@ -25,9 +25,20 @@ const WinStreakText = styled.div`
   span {
     color: ${({ theme }) => theme.text.primary};
     font-size: 20px;
-    line-height: 22px;;
+    line-height: 22px;
     font-weight: bold;
     margin-left: 4px;
+  }
+
+  @media only screen and (max-width: 820px) {
+    top: 0;
+    right: -14px;
+
+    span {
+      font-size: 14px;
+      line-height: 16px;
+      margin-left: 2px;
+    }
   }
 `
 const ImageContainer = styled.div<{
