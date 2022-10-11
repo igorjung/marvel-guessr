@@ -38,6 +38,10 @@
           "name": "Punho de Ferro (Danny Rand)"
         },
         {
+          "id": 1009269,
+          "name": "Morte"
+        },
+        {
           "id": 1009629,
           "name": "Tempestade"
         },
@@ -58,12 +62,12 @@
           "name": "Visão"
         },
         {
-          "id": 1009277,
-          "name": "Dominó"
+          "id": 1009720,
+          "name": "Wong" 
         },
         {
-          "id": 1010743,
-          "name": "Groot"
+          "id": 1009277,
+          "name": "Dominó"
         },
         {
           "id": 1011323,
@@ -94,6 +98,10 @@
           "name": "Jean Grey"
         },
         {
+          "id": 1009591,
+          "name": "Samurai de Prata" 
+        },
+        {
           "id": 1009223,
           "name": "Capitão Britânia"
         },
@@ -106,6 +114,10 @@
           "name": "Capitão América (Sam Wilson)"
         },
         {
+          "id": 1009407,
+          "name": "Loki"
+        },
+        {
           "id": 1011095,
           "name": "Capitã Marvel (Monica Rambeau)"
         },
@@ -116,6 +128,10 @@
         {
           "id": 1009318,
           "name": "Motoqueiro Fantasma (Johnny Blaze)"
+        },
+        {
+          "id": 1009475,
+          "name": "Nômade"  
         },
         {
           "id": 1009215,
@@ -186,8 +202,16 @@
           "name": "Homem de Ferro"
         },
         {
+          "id": 1010365,
+          "name": "Nebulosa"  
+        },
+        {
           "id": 1009492,
           "name": "Patriota"
+        },
+        {
+          "id": 1011435,
+          "name": "Duende Verde (Norman Osborn)"
         },
         {
           "id": 1010860,
@@ -246,12 +270,20 @@
           "name": "Senhor das Estrelas (Peter Quill)"
         },
         {
+          "id": 1011061,
+          "name": "Eternidade"
+        },
+        {
           "id": 1009415,
           "name": "Magia (Illyana Rasputin)"
         },
         {
           "id": 1009320,
           "name": "Gigante"
+        },
+        {
+          "id": 1011084,
+          "name": "Starfox" 
         },
         {
           "id": 1009182,
@@ -266,12 +298,20 @@
           "name": "Homem-Aranha (Miles Morales)"
         },
         {
+          "id": 1009146,
+          "name": "Abomination (Emil Blonsky)"
+        },
+        {
           "id": 1010927,
           "name": "Golias (Bill Foster)"
         },
         {
           "id": 1009421,
           "name": "Mandarim"
+        },
+        {
+          "id": 1011498,
+          "name": "Viúva Negra (Yelena Belova)"    
         },
         {
           "id": 1009508,
@@ -300,6 +340,10 @@
         {
           "id": 1011060,
           "name": "Ego"
+        },
+        {
+          "id": 1009412,
+          "name": "Madame Hydra"   
         },
         {
           "id": 1009577,
@@ -338,6 +382,10 @@
           "name": "Coisa"
         },
         {
+          "id": 1010784,
+          "name": "Ares"
+        },
+        {
           "id": 1009454,
           "name": "Morbius"
         },
@@ -366,12 +414,20 @@
           "name": "Abutre (Adrian Toomes)"
         },
         {
+          "id": 1010682,
+          "name": "Misty Knight"  
+        },
+        {
           "id": 1009682,
           "name": "Agente Americano"
         },
         {
           "id": 1009648,
           "name": "Treinador"
+        },
+        {
+          "id": 1010677,
+          "name": "Drácula"
         },
         {
           "id": 1010726,
@@ -384,6 +440,10 @@
         {
           "id": 1009652,
           "name": "Thanos"
+        },
+        {
+          "id": 1009303,
+          "name": "Fin Fang Foom"
         },
         {
           "id": 1009524,
@@ -426,6 +486,10 @@
           "name": "Raio Negro"
         },
         {
+          "id": 1011026,
+          "name": "Mantis"
+        },
+        {
           "id": 1009535,
           "name": "Caveira Vermelha"
         },
@@ -433,6 +497,10 @@
           "id": 1009297,
           "name": "Falcão"
         },
+        {
+          "id": 1010801,
+          "name": "Homem-Formiga (Scott Lang)"    
+        }, 
         {
           "id": 1009685,
           "name": "Ultron"
@@ -456,6 +524,10 @@
         {
           "id": 1009537,
           "name": "Rino"
+        },
+        {
+          "id": 1009520,
+          "name": "Homem-Púrpura"
         },
         {
           "id": 1010671,
@@ -482,8 +554,16 @@
           "name": "Pantera Negra"
         },
         {
+          "id": 1010796,
+          "name": "Madame Teia (Julia Carpenter)"    
+        },
+        {
           "id": 1009212,
           "name": "Mercenário"
+        },
+        {
+          "id": 1009675,
+          "name": "Lápide" 
         },
         {
           "id": 1017078,
@@ -526,6 +606,10 @@
           "name": "Hulk"
         },
         {
+          "id": 1011080,
+          "name": "Korg"
+        }, 
+        {
           "id": 1009592,
           "name": "Surfista Prateado"
         },
@@ -547,7 +631,7 @@
         },
         {
           "id": 1009189,
-          "name": "Viúva Negra"
+          "name": "Viúva Negra (Natasha Romanoff)"
         },
         {
           "id": 1009539,
@@ -594,6 +678,10 @@
           "name": "Vespa"
         },
         {
+          "id": 1011778,
+          "name": "Barão Mordo (Karl Mordo)"
+        },
+        {
           "id": 1009362,
           "name": "Homem de Gelo"
         },
@@ -608,6 +696,26 @@
         {
           "id": 1009378,
           "name": "Jessica Jones"
+        },
+        {
+          "id": 1012717,
+          "name": "Agatha Harkness"
+        },
+        {
+          "id": 1010813,
+          "name": "Celestiais"
+        },
+        {
+          "id": 1011019,
+          "name": "Homem-Molecular"  
+        },
+        {
+          "id": 1011197,
+          "name": "Aranha Escarlate (Ben Reilly)" 
+        },
+        {
+          "id": 1010743,
+          "name": "Groot"
         }
     ]
     },
@@ -650,6 +758,10 @@
           "name": "Iron Fist (Danny Rand)"
         },
         {
+          "id": 1009269,
+          "name": "Death"
+        },
+        {
           "id": 1009629,
           "name": "Storm"
         },
@@ -670,12 +782,12 @@
           "name": "Vision"
         },
         {
-          "id": 1009277,
-          "name": "Domino"
+          "id": 1009720,
+          "name": "Wong" 
         },
         {
-          "id": 1010743,
-          "name": "Groot"
+          "id": 1009277,
+          "name": "Domino"
         },
         {
           "id": 1011323,
@@ -706,6 +818,10 @@
           "name": "Jean Grey"
         },
         {
+          "id": 1009591,
+          "name": "Silver Samurai" 
+        },
+        {
           "id": 1009223,
           "name": "Captain Britain"
         },
@@ -718,6 +834,10 @@
           "name": "Captain America (Sam Wilson)"
         },
         {
+          "id": 1009407,
+          "name": "Loki"
+        },
+        {
           "id": 1011095,
           "name": "Captain Marvel (Monica Rambeau)"
         },
@@ -728,6 +848,10 @@
         {
           "id": 1009318,
           "name": "Ghost Rider (Johnny Blaze)"
+        },
+        {
+          "id": 1009475,
+          "name": "Nomad"  
         },
         {
           "id": 1009215,
@@ -798,9 +922,17 @@
           "name": "Iron Man"
         },
         {
+          "id": 1010365,
+          "name": "Nebula"  
+        },
+        {
           "id": 1009492,
           "name": "Patriot"
         },
+        {
+          "id": 1011435,
+          "name": "Green Goblin (Norman Osborn)"
+        }, 
         {
           "id": 1010860,
           "name": "Squirrel Girl"
@@ -858,12 +990,20 @@
           "name": "Star-Lord (Peter Quill)"
         },
         {
+          "id": 1011061,
+          "name": "Eternity"
+        },
+        {
           "id": 1009415,
           "name": "Magik (Illyana Rasputin)"
         },
         {
           "id": 1009320,
           "name": "Giant Man"
+        },
+        {
+          "id": 1011084,
+          "name": "Starfox" 
         },
         {
           "id": 1009182,
@@ -878,12 +1018,20 @@
           "name": "Spider-Man (Miles Morales)"
         },
         {
+          "id": 1009146,
+          "name": "Abominável (Emil Blonsky)"
+        },
+        {
           "id": 1010927,
           "name": "Goliath (Bill Foster)"
         },
         {
           "id": 1009421,
           "name": "Mandarin"
+        },
+        {
+          "id": 1011498,
+          "name": "Black Widow (Yelena Belova)"    
         },
         {
           "id": 1009508,
@@ -913,6 +1061,10 @@
           "id": 1011060,
           "name": "Ego"
         },
+        {
+          "id": 1009412,
+          "name": "Madame Hydra"   
+        }, 
         {
           "id": 1009577,
           "name": "Shang-Chi"
@@ -950,6 +1102,10 @@
           "name": "Thing"
         },
         {
+          "id": 1010784,
+          "name": "Ares"
+        },
+        {
           "id": 1009454,
           "name": "Morbius"
         },
@@ -978,12 +1134,20 @@
           "name": "Vulture (Adrian Toomes)"
         },
         {
+          "id": 1010682,
+          "name": "Misty Knight"  
+        },
+        {
           "id": 1009682,
           "name": "U.S. Agent"
         },
         {
           "id": 1009648,
           "name": "Taskmaster"
+        },
+        {
+          "id": 1010677,
+          "name": "Dracula"
         },
         {
           "id": 1010726,
@@ -996,6 +1160,10 @@
         {
           "id": 1009652,
           "name": "Thanos"
+        },
+        {
+          "id": 1009303,
+          "name": "Fin Fang Foom"
         },
         {
           "id": 1009524,
@@ -1038,12 +1206,20 @@
           "name": "Black Bolt"
         },
         {
+          "id": 1011026,
+          "name": "Mantis"
+        },
+        {
           "id": 1009535,
           "name": "Red Skull"
         },
         {
           "id": 1009297,
           "name": "Falcon"
+        },
+        {
+          "id": 1010801,
+          "name": "Ant-Man (Scott Lang)"    
         },
         {
           "id": 1009685,
@@ -1070,6 +1246,10 @@
           "name": "Rhino"
         },
         {
+          "id": 1009520,
+          "name": "Purple Man" 
+        },
+        {
           "id": 1010671,
           "name": "Enchantress (Amora)"
         },
@@ -1094,8 +1274,16 @@
           "name": "Black Panther"
         },
         {
+          "id": 1010796,
+          "name": "Madame Web (Julia Carpenter)"    
+        },
+        {
           "id": 1009212,
           "name": "Bullseye"
+        },
+        {
+          "id": 1009675,
+          "name": "Tombstone" 
         },
         {
           "id": 1017078,
@@ -1138,6 +1326,10 @@
           "name": "Hulk"
         },
         {
+          "id": 1011080,
+          "name": "Korg"
+        }, 
+        {
           "id": 1009592,
           "name": "Silver Surfer"
         },
@@ -1159,7 +1351,7 @@
         },
         {
           "id": 1009189,
-          "name": "Black Widow"
+          "name": "Black Widow (Natasha Romanoff)"
         },
         {
           "id": 1009539,
@@ -1206,6 +1398,10 @@
           "name": "Wasp"
         },
         {
+          "id": 1011778,
+          "name": "Baron Mordo (Karl Mordo)"
+        },
+        {
           "id": 1009362,
           "name": "Iceman"
         },
@@ -1220,6 +1416,26 @@
         {
           "id": 1009378,
           "name": "Jessica Jones"
+        },
+        {
+          "id": 1012717,
+          "name": "Agatha Harkness"
+        }, 
+        {
+          "id": 1010813,
+          "name": "Celestials"
+        },
+        {
+          "id": 1011019,
+          "name": "Molecule Man"  
+        },
+        {
+          "id": 1011197,
+          "name": "Scarlet Spider (Ben Reilly)" 
+        },
+        {
+          "id": 1010743,
+          "name": "Groot"
         }
     ]
     }
